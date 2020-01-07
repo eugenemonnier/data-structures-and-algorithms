@@ -15,8 +15,7 @@ const greeting = (word) => {
 
 const speaker = (message, callback) => {
   // Solution code here...
-  callback = message.toUpperCase();
-  return callback;
+  return callback(message);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -37,10 +36,15 @@ Return the modified array.
 
 const addValues = (arr, value) => {
   // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
+  for (var i = 0; i < times; i++) {
+    callback(arr, num);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
