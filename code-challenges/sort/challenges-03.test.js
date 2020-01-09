@@ -69,6 +69,8 @@ Here is an example of the input:
 
 const sortByPrice = (arr) => {
   // Solution code here...
+  arr.sort((a,b) => { return a.price > b.price ? 1 : a.price < b.price ? -1 : 0; });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
