@@ -8,6 +8,8 @@ Write a function named sortBackwards that takes in an array of numbers and retur
 
 const sortBackwards = (arr) => {
   // Solution code here...
+  arr.sort((a,b) => { return a > b ? -1 : a < b ? 1 : 0; });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -22,6 +24,8 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 
 const alphabetize = (arr) => {
   // Solution code here...
+  arr.sort((a,b) => { return a > b ? 1 : a < b ? -1 : 0; });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
