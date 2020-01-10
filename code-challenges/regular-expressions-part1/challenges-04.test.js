@@ -83,6 +83,12 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 
 const noPunctuation = str => {
   // Solution code here...
+  let noPuncArr = [];
+  let regex = /\b\w*\s/g;
+  if(regex.test(str)){
+    noPuncArr = str.match(regex);
+  }
+  return noPuncArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
