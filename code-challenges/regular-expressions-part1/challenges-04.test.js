@@ -14,8 +14,7 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
-  let regex = /\d/;
-  return regex.test(input);
+  return /\d/.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -28,12 +27,7 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
-  let arr = [];
-  let regex = /[A-Z]+\w*/g;
-  if(regex.test(str)){
-    arr = str.match(regex);
-  }
-  return arr;
+  return /[A-Z]+\w*/g.test(str) ? str.match(/[A-Z]+\w*/g) : [];
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -44,12 +38,7 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 const citiesAtoJ = (arr) => {
   // Solution code here...
   let citiesArr = [];
-  let regex = /^[A-J]/;
-  arr.forEach((element, index) => {
-    if(regex.test(element)){
-      citiesArr.push(element);
-    }
-  });
+  arr.forEach(element => { /^[A-J]/.test(element) ? citiesArr.push(element) : null; });
   return citiesArr;
 };
 
@@ -67,8 +56,7 @@ Do not use the vertical bar (pipe) in your pattern.
 
 const matchMonth = (input) => {
   // Solution code here...
-  let regex = /\b(october)\b|\b(oct)\b|\b(October)\b|\b(Oct)\b/;
-  return regex.test(input);
+  return /\b(october)\b|\b(oct)\b|\b(October)\b|\b(Oct)\b/.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -83,12 +71,7 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 
 const noPunctuation = str => {
   // Solution code here...
-  let noPuncArr = [];
-  let regex = /\b\w*\s/g;
-  if(regex.test(str)){
-    noPuncArr = str.match(regex);
-  }
-  return noPuncArr;
+  return str.match(/\b\w*\s/g);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -105,6 +88,7 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 
 let hangman = (str) => {
   // Solution code here...
+  return str.replace(/a|e|i|o|u/gi, '_');
 };
 
 /* ------------------------------------------------------------------------------------------------
