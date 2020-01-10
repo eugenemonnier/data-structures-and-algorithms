@@ -28,8 +28,13 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
+  let arr = [];
+  let regex = /[A-Z]+\w*/g;
+  if(regex.test(str)){
+    arr = str.match(regex);
+  }
+  return arr;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -38,6 +43,14 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
+  let citiesArr = [];
+  let regex = /^[A-J]/;
+  arr.forEach((element, index) => {
+    if(regex.test(element)){
+      citiesArr.push(element);
+    }
+  });
+  return citiesArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -54,6 +67,8 @@ Do not use the vertical bar (pipe) in your pattern.
 
 const matchMonth = (input) => {
   // Solution code here...
+  let regex = /\b(october)\b|\b(oct)\b|\b(October)\b|\b(Oct)\b/;
+  return regex.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
