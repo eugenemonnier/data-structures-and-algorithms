@@ -57,7 +57,7 @@ Do not use the vertical bar (pipe) in your pattern.
 const matchMonth = (input) => {
   // Solution code here...
   // oct(ober)?l
-  return /^[Oo]ct(?!ober$)\w*b/g.test(input);
+  return /^[Oo]ct(ober)?$/g.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
