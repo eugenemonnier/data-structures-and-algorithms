@@ -85,6 +85,10 @@ Write a function named hasChildrenValues that uses Object.values to determine if
 
 This function should take in an array of data and a character name and return a Boolean.
 
+    name: 'Eddard',
+    spouse: 'Catelyn',
+    children: ['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon'],
+    house
 For example:
 hasChildrenValues(characters, 'Cersei') will return true
 hasChildrenValues(characters, 'Sansa') will return false
@@ -92,7 +96,15 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
-
+  let isTrue = false;
+  arr.forEach(obj => {
+    if (obj.name === character) {
+      if (Object.values(obj.children)) {
+        isTrue = true;
+      }
+    }
+  });
+  return isTrue;
 };
 
 /* ------------------------------------------------------------------------------------------------
