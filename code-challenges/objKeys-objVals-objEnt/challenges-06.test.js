@@ -206,14 +206,16 @@ const houseSurvivors = (arr) => {
   arr.forEach(obj => {
     let nameArr = [obj.name];
     if (deceasedSpouses.includes(obj.spouse)) {
-      spouseArr = [obj.spouse];
+      spouseArr = [];
     } else if (obj.spouse !== null) {
       spouseArr = [obj.spouse];
     } else {
       spouseArr = [];
     }
-    obj.houseSizes = nameArr.length + spouseArr.length + obj.children.length;
-    sizes[0] += obj.houseSizes;
+    let houseCount = {};
+    houseCount['house'] = obj.house;
+    houseCount['members'] = nameArr.length + spouseArr.length + obj.children.length;
+    survivors.push(houseCount);
   });
   return survivors;
 };
