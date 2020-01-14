@@ -136,7 +136,6 @@ Write a function named totalCharacters that takes in an array and returns the nu
 
 const totalCharacters = (arr) => {
   // Solution code here...
-  debugger;
   let allChar = 0;
   let spouseArr = [];
   // Solution code here...
@@ -164,7 +163,7 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 ------------------------------------------------------------------------------------------------ */
 
 const houseSize = (arr) => {
-  const sizes = [0];
+  const sizes = [];
   let spouseArr = [];
   // Solution code here...
   arr.forEach(obj => {
@@ -174,8 +173,10 @@ const houseSize = (arr) => {
     } else {
       spouseArr = [];
     }
-    obj.houseSizes = nameArr.length + spouseArr.length + obj.children.length;
-    sizes[0] += obj.houseSizes;
+    let houseCount = {};
+    houseCount['house'] = obj.house;
+    houseCount['members'] = nameArr.length + spouseArr.length + obj.children.length;
+    sizes.push(houseCount);
   });
   return sizes;
 };
