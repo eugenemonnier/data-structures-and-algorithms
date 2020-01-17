@@ -147,7 +147,7 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
   // Solution code here...
-  return arr.reduce(function(kids, gOt) {
+  return arr.reduce((kids, gOt) => {
     gOt.children !== undefined ? kids = kids + gOt.children.length : null;
     return kids;
   }, 0);
@@ -253,6 +253,10 @@ Write a function named extractChildren that, given the array of characters from 
 
 const extractChildren = (arr) => {
   // Solution code here...
+  return arr.filter(gOt => /\w*a\w*/.test(gOt.name) ? gOt : null ).reduce((kids, gOt) => {
+    gOt.children !== undefined ? gOt.children.forEach(child => kids.push(child)) : null;
+    return kids;
+  }, []);
 };
 
 /* ------------------------------------------------------------------------------------------------
