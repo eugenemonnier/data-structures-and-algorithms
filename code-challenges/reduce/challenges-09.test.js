@@ -10,7 +10,7 @@ Note: You may not use the array's built-in length property.
 
 const countNumberOfElements = (arr) => {
   // Solution code here...
-  return arr.reduce((answerSoFar, value, index) => {
+  return arr.reduce((answerSoFar) => {
     answerSoFar++;
     return answerSoFar;
   });
@@ -90,6 +90,10 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 
 const reversedString = (str) => {
   // Solution code here...
+  return [...str].reduce((backwards, char, index) => {
+    backwards[str.length - (index + 1)] = char;
+    return backwards;
+  }, []).join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -143,6 +147,10 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
   // Solution code here...
+  return arr.reduce(function(kids, gOt) {
+    gOt.children !== undefined ? kids = kids + gOt.children.length : null;
+    return kids;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
