@@ -62,6 +62,19 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
+  const filtMapArr = [];
+  input.forEach(arr => {
+    const filterArr = arr.filter(val => {
+      if (typeof val === 'number') {
+        if (val % 5 === 0) {
+          return val;
+        }
+      }
+    });
+    const mapArr = filterArr.map(num => Math.pow(2,num));
+    filtMapArr.push(mapArr);
+  });
+  return filtMapArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -128,6 +141,14 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
+//   debugger;
+  let starWarsHumans = [];
+  data.filter(charObj => {
+    if (charObj.gender.includes('male')) {
+      starWarsHumans.push(charObj.name);
+    }
+  });
+  return starWarsHumans.join(' and ');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -138,6 +159,12 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   // Solution code here...
+  let shortest = '';
+  data.filter(charObj => {
+    if (charObj.height < 97) {
+      shortest = charObj.name;
+    }});
+  return shortest;
 };
 
 /* ------------------------------------------------------------------------------------------------
