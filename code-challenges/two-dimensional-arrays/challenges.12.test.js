@@ -23,8 +23,8 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
   const totalCookiePerHour = [0,0,0,0,0,0,0,0,0,0,0,0];
+  // Solution code here...
   for (let i = 0; i < stores.length; i++) {
     for(let j = 0; j < stores[i].length; j++) {
       totalCookiePerHour[j] += stores[i][j];
@@ -41,10 +41,20 @@ Pat has decided that he would also like to organize his data as objects containi
 Here is sample data for the 9:00 sales: { sales: '88 cookies', time: '9 a.m.' }.
 
 Write a function named salesData that uses forEach to iterate over the hourlySales array and create an object for each hour. Return an array of the formatted data.
+ { sales: '88 cookies', time: '9 a.m.', },
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
   // Solution code here...
+  const hourlyCookieSales = data;
+  const sales = [];
+  hours.forEach((hour, index) => {
+    const hourlySales = {};
+    hourlySales['sales'] = `${hourlyCookieSales[index]} cookies`;
+    hourlySales['time'] = hour;
+    sales.push(hourlySales);
+  });
+  return sales;
 };
 
 /* ------------------------------------------------------------------------------------------------
