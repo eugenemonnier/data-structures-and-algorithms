@@ -61,6 +61,9 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
+  let finalSTR = '';
+  [...str].forEach((char,i) => i % 2 !== 0 ? finalSTR += char : null);
+  return finalSTR;
 };
 
 /* ------------------------------------------------------------------------------------------------
