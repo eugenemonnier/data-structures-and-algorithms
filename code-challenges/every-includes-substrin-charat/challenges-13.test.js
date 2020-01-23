@@ -149,6 +149,21 @@ const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sat
 
 const sortByDay = (arr) => {
   // Solution code here...
+  debugger;
+  const finalArr = [[],[],[],[],[],[],[]];
+  arr.forEach(string => {
+    switch(true){
+    case string.includes('Monday') : finalArr[0].push(string);
+    case string.includes('Tuesday') : finalArr[1].push(string);
+    case string.includes('Wednesday') : finalArr[2].push(string);
+    case string.includes('Thursday') : finalArr[3].push(string);
+    case string.includes('Friday') : finalArr[4].push(string);
+    case string.includes('Saturday') : finalArr[5].push(string);
+    case string.includes('Sunday') : finalArr[6].push(string);
+    default: null;
+    }
+    return finalArr;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
