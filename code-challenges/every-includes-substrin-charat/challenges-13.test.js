@@ -10,6 +10,9 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 
 const firstLetters = (arr) => {
   // Solution code here...
+  let finalArr = [];
+  arr.forEach(string => finalArr.push(string.substring(0,1)));
+  return finalArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
