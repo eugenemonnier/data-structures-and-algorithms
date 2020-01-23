@@ -148,23 +148,26 @@ For example, ['Tuesday', 'Monday', 'Wednesday and Thursday', 'Tuesday 2', 'Thurs
 const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 const sortByDay = (arr) => {
-  // Solution code here...
-  debugger;
   const finalArr = [[],[],[],[],[],[],[]];
+  // Solution code here...
   arr.forEach(string => {
-    switch(true){
-    case string.includes('Monday') : finalArr[0].push(string);
-    case string.includes('Tuesday') : finalArr[1].push(string);
-    case string.includes('Wednesday') : finalArr[2].push(string);
-    case string.includes('Thursday') : finalArr[3].push(string);
-    case string.includes('Friday') : finalArr[4].push(string);
-    case string.includes('Saturday') : finalArr[5].push(string);
-    case string.includes('Sunday') : finalArr[6].push(string);
-    default: null;
-    }
-    return finalArr;
+    let stringArr = string.split(' ');
+    stringArr.forEach(segment => {
+      switch(true){
+      case segment.includes('Monday') : finalArr[0].push(string); break;
+      case segment.includes('Tuesday'): finalArr[1].push(string); break;
+      case segment.includes('Wednesday'): finalArr[2].push(string); break;
+      case segment.includes('Thursday'): finalArr[3].push(string); break;
+      case segment.includes('Friday'): finalArr[4].push(string); break;
+      case segment.includes('Saturday'): finalArr[5].push(string); break;
+      case segment.includes('Sunday'): finalArr[6].push(string); break;
+      default: null;
+      }
+    });
   });
+  return finalArr;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
