@@ -115,6 +115,13 @@ For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again'
 
 const unenrollBrook = (arr) => {
   // Solution code here...
+  const finalArr = [];
+  arr.forEach(arr => {
+    const innerArr = [];
+    arr.forEach(string => string.includes('Brook') ? null : innerArr.push(string));
+    finalArr.push(innerArr);
+  });
+  return finalArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
