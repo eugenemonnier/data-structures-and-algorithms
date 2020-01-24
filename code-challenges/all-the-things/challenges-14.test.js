@@ -110,9 +110,20 @@ Here is an example of the input:
 This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
+
+
 const sortBy = (property, arr) => {
   // Solution code here...
+  return arr.sort(compare(property));
 };
+
+function compare(property) {
+  return function innerSort(a, b) {
+    const varA = a[property];
+    const varB = b[property];
+    return varA < varB ? -1 : varA > varB ? 1 : 0;
+  };
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -128,6 +139,7 @@ https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
 // Solution code here...
+  return url.includes('https://');
 };
 
 /* ------------------------------------------------------------------------------------------------
