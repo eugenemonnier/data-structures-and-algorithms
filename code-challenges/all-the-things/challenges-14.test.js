@@ -160,10 +160,29 @@ Here is a sample board:
   ['X', 'O', 'X'],
 ];
 ------------------------------------------------------------------------------------------------ */
+// Using the new Array.prototype.flat() method
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
+Object.defineProperty(Array.prototype, 'flat', {
+  value: function(depth = 1) {
+    return this.reduce(function (flat, toFlatten) {
+      return flat.concat((Array.isArray(toFlatten) && (depth>1)) ? toFlatten.flat(depth-1) : toFlatten);
+    }, []);
+  },
+});
+
 
 const detectTicTacToeWin = (board) => {
   // Solution code here...
+  let isWinner = false;
+  const winningCombo = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [6,4,2]];
+  const allPlays = board.flat(1);
+  console.log(allPlays);
+  winningCombo.forEach(combo =>
+    ((allPlays[combo[0]].includes('X') && allPlays[combo[1]].includes('X') && allPlays[combo[2]].includes('X')) ||
+    (allPlays[combo[0]].includes('O') && allPlays[combo[1]].includes('O') && allPlays[combo[2]].includes('O'))) ? isWinner = true : null);
+  return isWinner;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
