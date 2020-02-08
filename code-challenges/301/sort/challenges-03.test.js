@@ -196,6 +196,16 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 
 const sortSchedule = (arr) => {
   // Solution code here...
+  arr.sort((a,b) => {
+    let dayA = a.dayOfWeek;
+    let dayB = b.dayOfWeek;
+    let lengthA = a.end - a.start;
+    let lengthB = b.end - b.start;
+    let returnVal;
+    a.dayOfWeek === b.dayOfWeek ? returnVal = lengthA - lengthB : returnVal = days[dayA] - days[dayB];
+    return returnVal;
+  });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
