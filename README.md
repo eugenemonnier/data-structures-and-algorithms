@@ -17,4 +17,4 @@ Alternatively, I also fed the array through a for loop that sets the starting in
 Both of these methods will console log the original array reversed. Both of these methods allows arrays of any length to be reversed using 6 lines of code.
 
 ### Solution
-![Array Reverse](./images/arrayReverse.jpg)
+![Array Reverse](./assets/arrayReverse.jpg)
