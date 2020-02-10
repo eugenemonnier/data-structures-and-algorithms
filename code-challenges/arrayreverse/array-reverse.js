@@ -6,12 +6,24 @@ const thirdArr = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59
 // reverses array by iterating through the array and setting the index of that value to the array's length minus the current index minus one.
 const reverseArray = (array) => {
   const reversedArr = [];
-  array.forEach((element, index) => {
-    reversedArr[array.length - index - 1] = element;
+  array.forEach((value, index) => {
+    reversedArr[array.length - index - 1] = value;
   });
   return console.log(`Reversed array: ${reversedArr}`);
+}
+
+const altReverseArray = (array) => {
+  const reversedArr = [];
+  for( var i = array.length - 1; i > 0; i--) {
+    reversedArr.push(array[i]);
+  }
+  return console.log(`Alternate reversed array: ${reversedArr}`);
 }
 
 reverseArray(firstArr);
 reverseArray(secondArr);
 reverseArray(thirdArr);
+
+altReverseArray(firstArr);
+altReverseArray(secondArr);
+altReverseArray(thirdArr);
