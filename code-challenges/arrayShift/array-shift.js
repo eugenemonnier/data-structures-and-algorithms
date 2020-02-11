@@ -12,3 +12,5 @@ const iterateArr = (arr, val, idx, newArr) => {
     i !== idx ? newArr.push(elem) : (newArr.push(val), newArr.push(elem));
   });
 }
+
+module.exports = insertShiftArray;

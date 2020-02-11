@@ -4,7 +4,7 @@
 [Reverse an Array](#reverse-an-array) <br/>
 [Shift an Array](#shift-an-array)
 
-## Reverse an Array
+## [Reverse an Array](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/20)
 Is it worth it? Let me work it. <br/>
 I put my arr down, flip it and reverse it. </br>
 Ti esrever dna ti pilf, nwod rra ym tup i.</br>
@@ -23,7 +23,7 @@ Both of these methods will console log the original array reversed. Both of thes
 ### Solution
 ![Array Reverse](./assets/arrayReverse.jpg)
 
-## Shift an Array
+## [Shift an Array](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/21)
 Creating a function to insert a value into the middle of an array.
 
 ### Challenge
