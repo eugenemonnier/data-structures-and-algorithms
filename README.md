@@ -6,6 +6,7 @@
 
 [Data Structures](#data-structures)
 - [Linked Lists](#linked-lists)<br/>
+- [Linked Lists Insertion](#linked-lists-(insertion))<br/>
 
 # Algorithms
 ## [Reverse an Array](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/20)
@@ -79,3 +80,21 @@ The `includes()` method starts by creating the variable `result` and setting its
 The `toString()` method starts by creating an empty string variable, `linkedString`, and a variable `currentNode` that is given the value of the linked list's head. If the linked list is empty the function will return a string value of `'NULL'`. Otherwise the function will traverse the linked list adding the `currentNode.value` to the `linkedString` variable. If `currentNode.next.next` is equal to `null` then the `currentNode.next.value` will also be added to the `linkedString` variable. After which the function will return the value of the varaible `linkedString`.
 
 ### Solution
+
+## [Linked Lists (Insertion)](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/26)
+Create three additonal methods for the LinkedList class.
+
+### Challenge
+- `.append(value)` which adds a new node with the given `value` to the end of the list
+- `.insertBefore(value, newVal)` which add a new node with the given `newValue` immediately before the first value node
+- `.insertAfter(value, newVal)` which add a new node with the given `newValue` immediately after the first `value` node
+
+### Approach & Efficency
+- `.append(value)` traverses the linked list, till it reaches the end. Then it adds a new node with the given `value` at the end of the list. Time = O(n), Space 0(n).
+
+- `.insertBefore(value, newVal)` traverses the linked list checking if the value of the next node is equal to the given `value`. When it finds that value it sets the current node to point to the new node and the new node to point to the next node. Time = O(n), Space 0(n).
+
+- `.insertAfter(value, newVal)` traverses the linked list checking if the value of the next node is equal to the given `value`. When it finds that value it sets the next node to point to the new node and the new node to point to the next next node. Time = O(n), Space 0(n). 
+
+### Solution
+![Linked List Insert 1](./assets/ll-insert(1).jpg)![Linked List Insert 2](./assets/ll-insert(2).jpg)
