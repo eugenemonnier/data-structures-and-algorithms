@@ -112,6 +112,33 @@ class LinkedList {
     return result;
   }
 
+  k(num) {
+    let currNode = this.head;
+    const tempArr = [];
+    let result;
+    if(num<=0){
+      result = 'Invalid input value. Input must be greater than 0.'
+    } else {
+      while(currNode.next) {
+        tempArr.push(currNode.value);
+        if(tempArr.length > num) {
+          tempArr.shift();
+        }
+        currNode = currNode.next;
+      }
+      tempArr.push(currNode.value);
+      if(tempArr.length > num) {
+        tempArr.shift();
+      }
+      if(tempArr.length < num){
+        result = 'Input value is greater than length of list.'
+      } else {
+        result = tempArr[0];
+      }
+    }
+    return result;
+  }
+
   toString() {
     let linkedString = '';
     let currNode = this.head;
@@ -130,16 +157,16 @@ class LinkedList {
 
 }
 
-let testList = new LinkedList();
-testList.insert(70);
-testList.insert(60);
-testList.insert(50);
-testList.insert(40);
-testList.insert(30);
-testList.insert(20);
-testList.insert(10);
-testList.insertBefore(10,35);
-console.log(testList.toString());
+// let testList = new LinkedList();
+// testList.insert(70);
+// testList.insert(60);
+// testList.insert(50);
+// testList.insert(40);
+// testList.insert(30);
+// testList.insert(20);
+// testList.insert(10);
+// console.log(testList.k(8));
+// console.log(testList.toString());
 
 
 describe('Linked List module', () => {
@@ -322,6 +349,27 @@ describe('Linked List module', () => {
     // check nonexistent value
     expect(testList.includes(243)).toStrictEqual(false);
   });
+
+  test('LinkedList.k()', () => {
+    let testList = new LinkedList();
+    testList.insert(70);
+    // where linked list size is 1
+    // where k and the length of the list are the same
+    expect(testList.k(1)).toStrictEqual(70);
+    testList.insert(60);
+    testList.insert(50);
+    testList.insert(40);
+    testList.insert(30);
+    testList.insert(20);
+    testList.insert(10);
+    // where k is greater than the length of the linked list
+    expect(testList.k(8)).toBe('Input value is greater than length of list.');
+    // where k is not a positive integer
+    expect(testList.k(-1)).toBe('Invalid input value. Input must be greater than 0.');
+    // happy path in the middle
+    expect(testList.k(4)).toStrictEqual(40);
+
+  })
 
   test('LinkedList.toString()', () => {
     let testList = new LinkedList();
