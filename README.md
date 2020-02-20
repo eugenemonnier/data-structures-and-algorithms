@@ -8,6 +8,7 @@
 - [Linked Lists](#linked-lists)<br/>
 - [Linked Lists Insertion](#linked-lists-(insertion))<br/>
 - [Linked Lists kth](#linked-lists-kth)<br/>
+- [Linked Lists Merge Lists](#linked-lists-merge-lists)<br/>
 
 
 # Algorithms
@@ -111,5 +112,16 @@ Create a new method, kth().
 
 ### Approach & Efficency
 - `.kth(k)` traverses the linked list, till it reaches the end. While it does that it pushes the value of the current node into an array. If the array's length is longer than `k` it will `shift()` off the first element in the array. Once it reaches the end of the list, as long as the length of the array is equal to the value of `k`, then the function returns the value of the array at index 0. Time = O(n), Space 0(n).
+
+### Solution
+
+## [Linked Lists Merge Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/28)
+Create a new function, mergeLists();
+
+### Challenge
+- Write a function called `mergeLists` which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list. Try and keep additional space down to O(1). You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges. 
+
+### Approach & Efficency
+- `mergeLists()` takes in two lists and traverses both lists simultaneously. First `listA` is checked to see if it's current value isn't `null` and if not, that value is added to the `ziplist` through the `.append()` method. Next the same is done with `listB`. This will continue untill the value of boths lists equal `null`. Finally `ziplist` is returned.
 
 ### Solution
