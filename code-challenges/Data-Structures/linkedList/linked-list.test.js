@@ -157,18 +157,58 @@ class LinkedList {
 
 }
 
-// let testList = new LinkedList();
-// testList.insert(70);
-// testList.insert(60);
-// testList.insert(50);
-// testList.insert(40);
-// testList.insert(30);
-// testList.insert(20);
-// testList.insert(10);
-// console.log(testList.toString());
+function mergeLists(listA, listB) {
+  let zipList = new LinkedList();
+  let currNodeA = listA.head;
+  let currNodeB = listB.head;
+  while(currNodeA || currNodeB) {
+      if (currNodeA) {
+        zipList.append(currNodeA.value);
+            currNodeA = currNodeA.next;
+      }
+      if (currNodeB) {
+        zipList.append(currNodeB.value);
+            currNodeB = currNodeB.next;
+      }
+  }
+  return zipList;
+}
+
+let testListA = new LinkedList();
+let testListB = new LinkedList();
+testListA.insert(70);
+testListB.insert(60);
+testListA.insert(50);
+testListB.insert(40);
+testListA.insert(30);
+testListB.insert(20);
+testListA.insert(10);
+// console.log(testListA.toString());
+// console.log(testListB.toString());
+console.log(mergeLists(testListA, testListB).toString());
 
 
 describe('Linked List module', () => {
+
+   test('mergeLists()', () => {
+    let testListA = new LinkedList();
+    let testListB = new LinkedList();
+    for(let i = 1; i < 5; i +=2 ) {
+      testListA.append(i);
+      testListB.append(i+1);
+    }
+    const consoleSpy = jest
+      .spyOn(console, 'log');
+    console.log(mergeLists(testListA, testListB).toString());
+    expect(console.log).toHaveBeenCalledWith('{1} -> {2} -> {3} -> {4} -> NULL');
+    testListA.append(5);
+    console.log(mergeLists(testListA, testListB).toString());
+    expect(console.log).toHaveBeenCalledWith('{1} -> {2} -> {3} -> {4} -> {5} -> NULL');
+    testListB.append(6);
+    testListB.append(8);
+    console.log(mergeLists(testListA, testListB).toString());
+    expect(console.log).toHaveBeenCalledWith('{1} -> {2} -> {3} -> {4} -> {5} -> {6} -> {8} -> NULL');    
+  })
 
   test('Node():', () => {
     expect(() => {
