@@ -55,7 +55,7 @@ class Queue {
       }
       currNode.next = newNode
     }
-    return this.head
+    return this.front
   }
 
   dequeue() {
