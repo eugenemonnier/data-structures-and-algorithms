@@ -41,10 +41,45 @@ class Stack {
 
 class Queue {
   constructor () {
-    this.front = []
+    this.front = null
   }
 
+  enqueue(value) {
+    let newNode = new Node(value)
+    if (!this.front) {
+      this.front = newNode
+    } else {
+      let currNode = this.front
+      while (currNode.next) {
+        currNode = currNode.next
+      }
+      currNode.next = newNode
+    }
+    return this.head
+  }
 
+  dequeue() {
+    let dequeueVal
+    if (!this.front) {
+      return undefined
+    } else if (!this.front.next) {
+      dequeueVal = this.front.value
+      this.front = null
+    } else {
+      dequeueVal = this.front.value
+      this.front.value = this.front.next.value
+      this.front.next = this.front.next.next
+    }
+    return dequeueVal
+  }
+
+  peek() {
+    return this.front.value
+  }
+
+  isEmpty() {
+    return !this.front ? true : false
+  }
 }
 
 module.exports = {

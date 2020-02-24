@@ -67,4 +67,67 @@ describe('stacks-and-queues module tests:', () => {
       })
     })
   })
+
+  describe('Queue class:', () => {
+    test('initiate new queue', () => {
+      let testQueue = new Queue()
+      expect(testQueue).toEqual( { 'front': null })
+    })
+
+    describe('enqueue()', () => {
+      test('that a new nodes are added to the end of the queue', () => {
+      let testQueue = new Queue()
+      testQueue.enqueue(10)
+      expect(testQueue.front).toEqual({ 'value': 10, 'next': null})
+      testQueue.enqueue(20)
+      testQueue.enqueue(30)
+      expect(testQueue.front).toEqual({ 'value': 10, 'next': 
+      expect.objectContaining({ 'value': 20, 'next':
+      expect.objectContaining({ 'value': 30, 'next': null })})})
+      })
+    })
+
+    describe('dequeue()', () => {
+      test(`that it returns the dequeued node's value`, () => {
+        let testQueue = new Queue()
+        testQueue.enqueue(10)
+        testQueue.enqueue(20)
+        expect(testQueue.dequeue()).toEqual(10)
+      })
+      test('that the queue has been modified appropriately', () => {
+        let testQueue = new Queue()
+        testQueue.enqueue(10)
+        testQueue.enqueue(20)
+        testQueue.dequeue()
+        expect(testQueue.front).toEqual({ 'value' : 20, 'next': null})
+        testQueue.dequeue()
+        expect(testQueue.front).toEqual(null)
+      })
+      test('that using the dequeue() method on an empty queue returns undefined', () => {
+        let testQueue = new Queue()
+        expect(testQueue.dequeue()).toBeUndefined()
+      })
+    })
+
+    describe('peek()', () => {
+      test('that it returns the front of the queue', () => {
+        let testQueue = new Queue()
+        testQueue.enqueue(10)
+        testQueue.enqueue(20)
+        expect(testQueue.peek()).toEqual(10)
+      })
+    })
+
+    describe('isEmpty()', () => {
+      test('if stack is empty, returns true', () => {
+        let testQueue = new Queue()
+        expect(testQueue.isEmpty()).toBe(true)
+      })
+      test('if stack is NOT empty, returns false', () => {
+        let testQueue = new Queue()
+        testQueue.enqueue(10)
+        expect(testQueue.isEmpty()).toBe(false)
+      })
+    })
+  })
 })
