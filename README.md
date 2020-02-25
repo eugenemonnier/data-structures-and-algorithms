@@ -10,6 +10,7 @@
 - [Linked Lists kth](#linked-lists-kth)<br/>
 - [Linked Lists Merge Lists](#linked-lists-merge-lists)<br/>
 - [Stack and Queue Implementation](#stack-and-queue-implementation)<br/>
+- [Queue with Stacks](#queue-with-stacks)
 
 
 # Algorithms
@@ -149,3 +150,17 @@ For the `Queue` class, I created the methods `enqueue`, `dequeue`, `peek`, and `
   - For the `dequeue` method, I create a new variable, `dequeueVal`. Then I check if the `front` of the queue exists. If it does not, then the function returns `undefined`. Otherwise I check to see if the queue's `front.next` exists. If it doesn't, then `dequeueVal` is set to the queue's `front.value`, the queue's `front` is set to `null`, and the function returns `dequeueVal`. Otherwise, `dequeueVal` is set to the queue's `front.value`, the queue's `front.value` is set to `front.next.value`, the queue's `front.next` is set to `front.next.next`, and the function returns the value of `dequeueVal`.
   - For the `peek` method, I just return the `front.value` of the stack.
   - For the `isEmpty` method, I check if `front` of the stack exists. If so, the method returns `false`, otherwise it returns `true`.
+
+## [Queue with Stacks](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/30)
+Created PseudoQueue class and methods
+
+### Challenge
+- Create a brand new `PseudoQueue` class. Do not use an existing `Queue`. Instead, this `PseudoQueue` class will implement our standard queue interface (the two methods listed below), but will internally only utilize 2 `Stack` objects. Ensure that you create your class with the following methods:
+
+  - `enqueue(value)` which inserts value into the `PseudoQueue`, using a first-in, first-out approach.
+  - `dequeue()` which extracts a value from the `PseudoQueue`, using a first-in, first-out approach.
+- The `Stack` instances have only `push`, `pop`, and `peek` methods. You should use your own `Stack` implementation. Instantiate these `Stack` objects in your `PseudoQueue` constructor.
+
+###  Approach & Efficency
+- For the `PseudoQueue` class, I created the methods `enqueue` and `dequeue`.
+  - For the `enqueue` method, I created the variables `firstStack` & `secondStack` as instances of `PseudoQueue`. If the `PseudoQueue` is empty, `push` the `value` to `secondstack`. Otherwise create the variable `currNode` and set to the `PseudoQueue`'s `top`. Then traverse the `PseudoQueue`, `push`ing to the `firstStack` the `currNode.value`. Once reaching the end, `push`ing the given `value`. After which, going to traverse through `firstStack` and push each `value` to the `secondStack`. Finally setting `this.stop` to `secondStack.top` and returning `this.stop`.
