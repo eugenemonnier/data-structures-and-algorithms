@@ -9,6 +9,7 @@
 - [Linked Lists Insertion](#linked-lists-(insertion))<br/>
 - [Linked Lists kth](#linked-lists-kth)<br/>
 - [Linked Lists Merge Lists](#linked-lists-merge-lists)<br/>
+- [Stack and Queue Implementation](#stack-and-queue-implementation)<br/>
 
 
 # Algorithms
@@ -82,8 +83,6 @@ The `includes()` method starts by creating the variable `result` and setting its
 
 The `toString()` method starts by creating an empty string variable, `linkedString`, and a variable `currentNode` that is given the value of the linked list's head. If the linked list is empty the function will return a string value of `'NULL'`. Otherwise the function will traverse the linked list adding the `currentNode.value` to the `linkedString` variable. If `currentNode.next.next` is equal to `null` then the `currentNode.next.value` will also be added to the `linkedString` variable. After which the function will return the value of the varaible `linkedString`.
 
-### Solution
-
 ## [Linked Lists (Insertion)](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/26)
 Create three additonal methods for the LinkedList class.
 
@@ -102,8 +101,6 @@ Create three additonal methods for the LinkedList class.
 ### Solution
 ![Linked List Insert 1](./assets/ll-insert(1).jpg)![Linked List Insert 2](./assets/ll-insert(2).jpg)
 
-### Solution
-
 ## [Linked Lists kth](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/27)
 Create a new method, kth().
 
@@ -112,8 +109,6 @@ Create a new method, kth().
 
 ### Approach & Efficency
 - `.kth(k)` traverses the linked list, till it reaches the end. While it does that it pushes the value of the current node into an array. If the array's length is longer than `k` it will `shift()` off the first element in the array. Once it reaches the end of the list, as long as the length of the array is equal to the value of `k`, then the function returns the value of the array at index 0. Time = O(n), Space 0(n).
-
-### Solution
 
 ## [Linked Lists Merge Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/28)
 Create a new function, mergeLists();
@@ -124,4 +119,33 @@ Create a new function, mergeLists();
 ### Approach & Efficency
 - `mergeLists()` takes in two lists and traverses both lists simultaneously. First `listA` is checked to see if it's current value isn't `null` and if not, that value is added to the `ziplist` through the `.append()` method. Next the same is done with `listB`. This will continue untill the value of boths lists equal `null`. Finally `ziplist` is returned.
 
-### Solution
+## [Stack and Queue Implementation](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/29)
+Created a Stack class (first in last out) and a Queue class (first in first out)
+
+### Challenge
+- Create a `Node` class that has properties for the value stored in the Node, and a pointer to the next node.
+- Create a `Stack` class that has a `top` property. It creates an empty Stack when instantiated.
+  - This object should be aware of a default empty value assigned to `top` when the stack is created.
+  - Define a method called `push` which takes any value as an argument and adds a new node with that value to the `top` of the stack with an O(1) Time performance.
+  - Define a method called `pop` that does not take any argument, removes the node from the `top` of the stack, and returns the node’s value.
+  - Define a method called `peek` that does not take an argument and returns the value of the node located on `top` of the stack, without removing it from the stack.
+  - Define a method called `isEmpty` that does not take an argument, and returns a boolean indicating whether or not the stack is empty.
+- Create a `Queue` class that has a `front` property. It creates an empty Queue when instantiated.
+  - This object should be aware of a default empty value assigned to `front` when the queue is created.
+  - Define a method called `enqueue` which takes any value as an argument and adds a new node with that value to the back of the queue with an O(n) Time performance.
+  - Define a method called `dequeue` that does not take any argument, removes the node from the `front` of the queue, and returns the node’s value.
+  - Define a method called `peek` that does not take an argument and returns the value of the node located in the `front` of the queue, without removing it from the queue.
+  - Define a method called `isEmpty` that does not take an argument, and returns a boolean indicating whether or not the queue is empty.
+
+### Approach & Efficency
+For the `Stack` class, I created the methods `push`, `pop`, `peek`, and `isEmpty`. 
+  - For the `push` method, I create a new variable, `newNode`, which is an instance of `Node` with the given `value` as the argument. The `next` property of that value is given the value of the stack's `top` property. Then the stack's `top` property is set to `newNode`.
+  - For the `pop` method, I first check to see if the stack is empty. If it is, the the method returns `undefined`. Otherwise, I check if the stack has only one node on the stack by checking whether the value of the stack's `next` value exists. If it does not then we set the value of the stack's `top` to `null` and return it. Otherwise we set the stack's `top.value` to the `next.value`, then set the stack's `top.next` to the value of `top.next.next`, returning the stack's `top.value`.
+  - For the `peek` method, I just return the `top.value` of the stack.
+  - For the `isEmpty` method, I check if `top` of the stack exists. If so, the method returns `false`, otherwise it returns `true`.
+
+For the `Queue` class, I created the methods `enqueue`, `dequeue`, `peek`, and `isEmpty`. 
+  - For the `enqueue` method, I create a new variable, `newNode`, which is an instance of `Node` with the given `value` as the argument. Then I check if the `front` of the queue exists. If it does not, I set the `front` to `newNode`. Otherwise, I create the variable `currNode` which is set to the queues `front`. From there I traverse the queue until I reach the end of the queue. At that point `currNode.next` is set to equal `newNode`. Returning the `front` of the queue.
+  - For the `dequeue` method, I create a new variable, `dequeueVal`. Then I check if the `front` of the queue exists. If it does not, then the function returns `undefined`. Otherwise I check to see if the queue's `front.next` exists. If it doesn't, then `dequeueVal` is set to the queue's `front.value`, the queue's `front` is set to `null`, and the function returns `dequeueVal`. Otherwise, `dequeueVal` is set to the queue's `front.value`, the queue's `front.value` is set to `front.next.value`, the queue's `front.next` is set to `front.next.next`, and the function returns the value of `dequeueVal`.
+  - For the `peek` method, I just return the `front.value` of the stack.
+  - For the `isEmpty` method, I check if `front` of the stack exists. If so, the method returns `false`, otherwise it returns `true`.
