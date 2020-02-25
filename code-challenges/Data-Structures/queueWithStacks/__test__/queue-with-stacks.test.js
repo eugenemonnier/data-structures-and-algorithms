@@ -1,6 +1,6 @@
 const PseudoQueue = require('../queue-with-stacks')
 
- describe('Queue class:', () => {
+ xdescribe('Queue class:', () => {
     test('initiate new queue', () => {
       let testQueue = new PseudoQueue()
       expect(testQueue).toEqual( { 'top': null })
