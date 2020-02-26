@@ -3,6 +3,7 @@
 - [Reverse an Array](#reverse-an-array) <br/>
 - [Shift an Array](#shift-an-array)<br/>
 - [Array Binary Search](#array-binary-search)<br/>
+- [FIFO Animal Shelter](#fifo-animal-shelter)<br/>
 
 [Data Structures](#data-structures)
 - [Linked Lists](#linked-lists)<br/>
@@ -60,6 +61,25 @@ This function takes 6 lines of code. This function will work with arrays of any 
 
 ### Solution
 ![Array Binary Search](./assets/array-binary-search.jpg)
+
+## [FIFO Animal Shelter](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/31)
+Create `AnimalShelter` class with methods `enqueue(animal)` and `dequeue(pref)`
+
+### Challenge
+- Create a class called `AnimalShelter` which holds only dogs and cats. The shelter operates using a first-in, first-out approach.
+- Implement the following methods:
+  - `enqueue(animal)`: adds `animal` to the shelter. `animal` can be either a `dog` or a `cat` object.
+  - `dequeue(pref)`: returns either a dog or a cat. If `pref` is not `"dog"` or `"cat"` then return `null`.
+
+### Solution & Efficency
+I created the `AnimalShelter` class and the `enqueue` & `dequeue` methods.
+
+With the `enqueue(animal)` method, I check to see if the `animal.type` provided is either `dog` or `cat`. If it is, the function pushes the `animal` object to the `shelter` array. Otherwise it returns an error message.
+
+With the `dequeue(pref)` method, I check to see if `pref` is either a `dog` or `cat`. If so the function loops through the `shelter` array checking whether `shelter.type` is equal to `pref`. When it finds a match, it splices the `shelter` array at the index of the match. If the user did not give an arg for `pref` then `pref` is set to the `shelter[0].type` and the object at index 0 is removed. If the user enters in any other arg for `pref`, then `pref` is set to null. At the end of the function `pref` is returned.
+
+### Solution
+![FIFO Animal Shelter](./assets/fifo-animal-shelter.jpg)
 
 # Data Structures
 ## [Linked Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/25)

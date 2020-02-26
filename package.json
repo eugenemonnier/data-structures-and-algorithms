@@ -1,19 +1,26 @@
 {
-  "name": "3-code-challenges",
+  "name": "code-challenges",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "jest --coverage",
+    "test-watch": "jest --watchAll --coverage",
     "start": "node index.js",
-    "lint": "eslint **/*.js",
-    "test": "jest --verbose --coverage",
-    "test-watch": "jest --watchAll --verbose --coverage",
+    "dev": "nodemon index.js",
     "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json"
   },
   "keywords": [],
-  "author": "",
+  "author": "Eugene Monnier",
   "license": "MIT",
   "dependencies": {
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "nodemon": "^2.0.2"
+  },
+  "standard": {
+    "env": "jest"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
