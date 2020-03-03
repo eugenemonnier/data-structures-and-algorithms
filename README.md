@@ -4,6 +4,7 @@
 - [Shift an Array](#shift-an-array)<br/>
 - [Array Binary Search](#array-binary-search)<br/>
 - [FIFO Animal Shelter](#fifo-animal-shelter)<br/>
+- [FizzBuzz Tree](#fizzbuzz-tree)<br/>
 
 [Data Structures](#data-structures)
 - [Linked Lists](#linked-lists)<br/>
@@ -80,6 +81,23 @@ With the `dequeue(pref)` method, I check to see if `pref` is either a `dog` or `
 
 ### Solution
 ![FIFO Animal Shelter](./assets/fifo-animal-shelter.jpg)
+
+## [FizzBuzz Tree](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/33)
+Create `BinaryTree` and `Node` classes. `BinaryTree` class contains methods `preOrder()` and `insert()` methods. Also create a`fizzBuzzTree` function and a `traverse` function.
+
+### Challenge
+- Write a function called FizzBuzzTree which takes a tree as an argument.
+- Without utilizing any of the built-in methods available to your language, determine whether or not the value of each node is divisible by 3, 5 or both. Create a new tree with the same structure as the original, but the values modified as follows:
+  - If the value is divisible by 3, replace the value with “Fizz”
+  - If the value is divisible by 5, replace the value with “Buzz”
+  - If the value is divisible by 3 and 5, replace the value with “FizzBuzz”
+- If the value is not divisible by 3 or 5, simply turn the number into a String.
+- Return the new tree.
+
+### Approach & Efficency
+The `fizzBuzzTree(tree)` function takes in a binary tree and calls the `traverse` function passing in an argument of `tree.root`. Then the function returns `tree`.
+
+The `traverse` function takes in a node. It checks if the node is `null`. If it is, then it returns `null`. Otherwise it first checks if `Node.value` is divisible by 15. If it is, then it will change `Node.value` to 'fizzbuzz'. Otherwise, it will next check to see if `Node.value` is divisible by 3. If it is, then it will change `Node.value` to 'fizz'. Otherwise, it will next check to see if `Node.value` is divisible by 5. If it is, then it will change `Node.value` to 'buzz'. Otherwise, it will change `Node.value` to a stringified version of the `Node.value`.  Then the function will recursively call `traverse` passing in `Node.left` and then again call `traverse` passing in `Node.right`.
 
 # Data Structures
 ## [Linked Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/25)

@@ -53,24 +53,24 @@ class BinaryTree {
   }
 }
 
-function fizzBuzzTree (tree) {
-  function traverse (Node) {
-    if (!Node) {
-      return null
-    } else if (Node.value % 3 === 0 && Node.value % 5 === 0) {
-      Node.value = 'fizzbuzz'
-    } else if (Node.value % 3 === 0) {
-      Node.value = 'fizz'
-    } else if (Node.value % 5 === 0) {
-      Node.value = 'buzz'
-    } else {
-      Node.value = Node.value.toString()
-    }
-    traverse(Node.left)
-    traverse(Node.right)
+function traverse (Node) {
+  if (!Node) {
+    return null
+  } else if (Node.value % 15 === 0) {
+    Node.value = 'fizzbuzz'
+  } else if (Node.value % 3 === 0) {
+    Node.value = 'fizz'
+  } else if (Node.value % 5 === 0) {
+    Node.value = 'buzz'
+  } else {
+    Node.value = Node.value.toString()
   }
+  traverse(Node.left)
+  traverse(Node.right)
+}
+
+function fizzBuzzTree (tree) {
   traverse(tree.root)
   return tree
 }
-
 module.exports = { Node, BinaryTree, fizzBuzzTree }
