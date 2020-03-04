@@ -9,7 +9,7 @@ describe('BinaryTree module:', () => {
     test('Creates an instance of a BinaryTree and add a node', () => {
       const testTree = new BinaryTree()
       testTree.root = new Node(10)
-      expect(testTree).toEqual({ root: expect.objectContaining({ root: 10, left: null, right: null }) })
+      expect(testTree).toEqual({ root: expect.objectContaining({ value: 10, left: null, right: null }) })
     })
   })
   describe('preOrder()', () => {
@@ -49,6 +49,20 @@ describe('BinaryTree module:', () => {
       testTree.root.right.left = new Node(4)
       testTree.root.right.left.left = new Node(2)
       expect(testTree.postOrder()).toStrictEqual([8, 3, 9, 2, 4, 5, 10])
+    })
+  })
+
+  describe('breadthOrder()', () => {
+    test('Return an array containing tree elements in a breadthOrder traversal', () => {
+      const testTree = new BinaryTree()
+      testTree.root = new Node(10)
+      testTree.root.left = new Node(9)
+      testTree.root.left.left = new Node(8)
+      testTree.root.left.right = new Node(3)
+      testTree.root.right = new Node(5)
+      testTree.root.right.left = new Node(4)
+      testTree.root.right.left.left = new Node(2)
+      expect(testTree.breadthOrder()).toStrictEqual([10, 9, 5, 8, 3, 4, 2])
     })
   })
 })

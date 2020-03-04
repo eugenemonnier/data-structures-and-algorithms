@@ -1,6 +1,6 @@
 class Node {
-  constructor (root) {
-    this.root = root
+  constructor (value = null) {
+    this.value = value
     this.left = null
     this.right = null
   }
@@ -17,7 +17,7 @@ class BinaryTree {
       if (!Node) {
         return
       }
-      output.push(Node.root)
+      output.push(Node.value)
       if (Node.left) {
         traverse(Node.left)
       }
@@ -38,7 +38,7 @@ class BinaryTree {
       if (Node.left) {
         traverse(Node.left)
       }
-      output.push(Node.root)
+      output.push(Node.value)
       if (Node.right) {
         traverse(Node.right)
       }
@@ -59,9 +59,24 @@ class BinaryTree {
       if (Node.right) {
         traverse(Node.right)
       }
-      output.push(Node.root)
+      output.push(Node.value)
     }
     traverse(this.root)
+    return output
+  }
+
+  breadthOrder () {
+    const output = []
+    const queue = []
+    if (!this.root) return
+    else queue.push(this.root)
+    while (queue.length > 0) {
+      const current = queue[0]
+      if (current.left) queue.push(current.left)
+      if (current.right) queue.push(current.right)
+      output.push(queue[0].value)
+      queue.shift()
+    }
     return output
   }
 }
@@ -77,8 +92,7 @@ testTree.root.right = new Node(5)
 testTree.root.right.left = new Node(4)
 testTree.root.right.left.left = new Node(2)
 
-// console.log(testTree)
-
-console.log(testTree.preOrder())
-console.log(testTree.inOrder())
-console.log(testTree.postOrder())
+console.log('preorder ', testTree.preOrder())
+console.log('inorder ', testTree.inOrder())
+console.log('postorder ', testTree.postOrder())
+console.log('breadth ', testTree.breadthOrder())

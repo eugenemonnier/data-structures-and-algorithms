@@ -1,5 +1,5 @@
 class Node {
-  constructor (value) {
+  constructor (value = null) {
     this.value = value
     this.left = null
     this.right = null
@@ -53,24 +53,29 @@ class BinaryTree {
   }
 }
 
-function traverse (Node) {
-  if (!Node) {
-    return null
-  } else if (Node.value % 15 === 0) {
-    Node.value = 'fizzbuzz'
-  } else if (Node.value % 3 === 0) {
-    Node.value = 'fizz'
-  } else if (Node.value % 5 === 0) {
-    Node.value = 'buzz'
-  } else {
-    Node.value = Node.value.toString()
-  }
-  traverse(Node.left)
-  traverse(Node.right)
+function fizzBuzzTree (tree) {
+  const fbTree = new BinaryTree()
+  fbTree.root = fizzBuzzTreeHelper(tree.root)
+  console.log(fbTree)
+  return fbTree
 }
 
-function fizzBuzzTree (tree) {
-  traverse(tree.root)
-  return tree
+function fizzify (val) {
+  if (val % 15 === 0) val = 'fizzbuzz'
+  else if (val % 3 === 0) val = 'fizz'
+  else if (val % 5 === 0) val = 'buzz'
+  else val = val.toString()
+  return val
 }
+
+// help from Ada
+function fizzBuzzTreeHelper (node) {
+  if (node === null) return null
+  const fizzVal = fizzify(node.value)
+  const newNode = new Node(fizzVal)
+  newNode.left = fizzBuzzTreeHelper(node.left)
+  newNode.right = fizzBuzzTreeHelper(node.right)
+  return newNode
+}
+
 module.exports = { Node, BinaryTree, fizzBuzzTree }
