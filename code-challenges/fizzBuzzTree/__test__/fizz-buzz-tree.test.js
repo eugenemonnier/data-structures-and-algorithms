@@ -14,6 +14,7 @@ describe('fizz-buzz-tree module ', () => {
     testTree.insert(15)
     testTree.insert(12)
     fbTree = fizzBuzzTree(testTree)
-    expect(fbTree.preOrder()).toEqual(['buzz', 'fizz', 'buzz', '1', 'fizz', '2', 'fizzbuzz', 'fizz'])
+    expect(fizzBuzzTree(testTree).preOrder()).toEqual(['buzz', 'fizz', 'buzz', '1', 'fizz', '2', 'fizzbuzz', 'fizz'])
+    expect(testTree.preOrder()).toEqual([10, 6, 5, 1, 3, 2, 15, 12])
   })
 })
