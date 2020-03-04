@@ -68,10 +68,8 @@ class BinaryTree {
   breadthOrder () {
     const output = []
     const queue = []
-    if (!this.root) {
-      return
-    }
-    queue.push(this.root)
+    if (!this.root) return
+    else queue.push(this.root)
     while (queue.length > 0) {
       const current = queue[0]
       if (current.left) queue.push(current.left)
