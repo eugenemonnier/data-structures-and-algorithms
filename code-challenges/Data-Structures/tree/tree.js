@@ -95,49 +95,19 @@ class BinaryTree {
   }
 
   maximumBinary () {
-    let output = -Infinity
-    const traverse = (Node) => {
+    let maxVal = -Infinity
+    function maximumBinaryHelper (Node) {
       if (!Node) {
         return
       }
-      if (Node.value > output) output = Node.value
-      if (Node.left) traverse(Node.left)
-      if (Node.right) traverse(Node.right)
+      if (Node.value > maxVal) maxVal = Node.value
+      if (Node.left) maximumBinaryHelper(Node.left)
+      if (Node.right) maximumBinaryHelper(Node.right)
+      return maxVal
     }
-    traverse(this.root)
-    return output
+    maximumBinaryHelper(this.root)
+    return maxVal
   }
 }
 
 module.exports = { Node, BinaryTree }
-
-const testTree = new BinaryTree()
-console.log('maximumBinary', testTree.maximumBinary())
-
-testTree.root = new Node(10)
-testTree.root.left = new Node(9)
-testTree.root.left.left = new Node(8)
-testTree.root.left.right = new Node(3)
-testTree.root.right = new Node(5)
-testTree.root.right.left = new Node(4)
-testTree.root.right.left.left = new Node(2)
-
-const testTree2 = new BinaryTree()
-console.log('reverseLevelOrder empty ', testTree2.reverseLevelOrder())
-
-testTree2.root = new Node(1)
-testTree2.root.left = new Node(2)
-testTree2.root.left.left = new Node(4)
-testTree2.root.left.right = new Node(5)
-testTree2.root.right = new Node(3)
-testTree2.root.right.left = new Node(6)
-testTree2.root.right.right = new Node(7)
-
-// console.log('preorder ', testTree.preOrder())
-// console.log('inorder ', testTree.inOrder())
-// console.log('postorder ', testTree.postOrder())
-// console.log('breadth ', testTree.breadthOrder())
-console.log('reverseLevelOrder ', testTree2.reverseLevelOrder())
-console.log('reverseLevelOrder ', testTree.reverseLevelOrder())
-console.log('maximumBinary', testTree.maximumBinary())
-console.log('maximumBinary', testTree2.maximumBinary())
