@@ -5,6 +5,7 @@
 - [Array Binary Search](#array-binary-search)<br/>
 - [FIFO Animal Shelter](#fifo-animal-shelter)<br/>
 - [FizzBuzz Tree](#fizzbuzz-tree)<br/>
+- [Insertion Sort](#insertion-sort)<br/>
 
 [Data Structures](#data-structures)
 - [Linked Lists](#linked-lists)<br/>
@@ -100,6 +101,18 @@ Create `BinaryTree` and `Node` classes. `BinaryTree` class contains methods `pre
 The `fizzBuzzTree(tree)` function takes in a binary tree and calls the `traverse` function passing in an argument of `tree.root`. Then the function returns `tree`.
 
 The `traverse` function takes in a node. It checks if the node is `null`. If it is, then it returns `null`. Otherwise it first checks if `Node.value` is divisible by 15. If it is, then it will change `Node.value` to 'fizzbuzz'. Otherwise, it will next check to see if `Node.value` is divisible by 3. If it is, then it will change `Node.value` to 'fizz'. Otherwise, it will next check to see if `Node.value` is divisible by 5. If it is, then it will change `Node.value` to 'buzz'. Otherwise, it will change `Node.value` to a stringified version of the `Node.value`.  Then the function will recursively call `traverse` passing in `Node.left` and then again call `traverse` passing in `Node.right`.
+
+## [Insert Sort](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/37)
+Create a `insertionSort` function.
+
+### Challenge
+Create a function called `insertionSort` that takes in an array of integers and returns that array sorted lowest to highest.
+
+### Approach & Efficency
+First we create the `insertionSort` function that takes in an array of integers. Then we create a variable, `n`, to use for the array length. Next we enter a for loop that continues for as long as `i` is less than `n - 1`. Inside that loop we create the variable `min` and set its value to `i`. Then we go inside an inner loop. In that loop we set `j` equal to `i + 1`, and continue for as long as `j` is less than `n`. Inside that loop we will check to see if our array at index `j` is less than our array at inder `min`. If it is then we set `min` equal to `j`. After we get out of the inner loop we create the variable `temp` and set its value equal to the array at index `min` which will be the lowest value found in the inner loop. From there the array at `min` is set to the array at `i` and the array at `i` is set to the value of `temp`. After we exit the outer loop we return the array which will now be sorted lowest to highest.
+
+### Solution
+![Insertion Sort](./assets/insertion-sort.jpg)
 
 # Data Structures
 ## [Linked Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/25)
