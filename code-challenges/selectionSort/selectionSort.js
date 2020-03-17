@@ -1,4 +1,4 @@
-function insertSort (arr) {
+function slectionSort (arr) {
   const n = arr.length
   for (let i = 0; i < n - 1; i++) {
     let min = i
@@ -12,4 +12,4 @@ function insertSort (arr) {
   return arr
 }
 
-module.exports = insertSort
+module.exports = slectionSort
