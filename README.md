@@ -6,6 +6,7 @@
 - [FIFO Animal Shelter](#fifo-animal-shelter)<br/>
 - [FizzBuzz Tree](#fizzbuzz-tree)<br/>
 - [Selection Sort](#selection-sort)<br/>
+- [Merge Sort](#merge-sort)<br/>
 
 [Data Structures](#data-structures)
 - [Linked Lists](#linked-lists)<br/>
@@ -102,7 +103,7 @@ The `fizzBuzzTree(tree)` function takes in a binary tree and calls the `traverse
 
 The `traverse` function takes in a node. It checks if the node is `null`. If it is, then it returns `null`. Otherwise it first checks if `Node.value` is divisible by 15. If it is, then it will change `Node.value` to 'fizzbuzz'. Otherwise, it will next check to see if `Node.value` is divisible by 3. If it is, then it will change `Node.value` to 'fizz'. Otherwise, it will next check to see if `Node.value` is divisible by 5. If it is, then it will change `Node.value` to 'buzz'. Otherwise, it will change `Node.value` to a stringified version of the `Node.value`.  Then the function will recursively call `traverse` passing in `Node.left` and then again call `traverse` passing in `Node.right`.
 
-## [Selection Sort](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/37)
+## [Selection Sort](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/38)
 Create a `selectionSort` function.
 
 ### Challenge
@@ -113,6 +114,18 @@ First we create the `selectionSort` function that takes in an array of integers.
 
 ### Solution
 ![Insertion Sort](./assets/selection-sort.jpg)
+
+## [Merge Sort](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/39)
+Create a `mergeSort` function and test it.
+
+### Challenge
+Create a `mergeSort` function that takes in an array of integers and sorts them lowest to highest, using the Merge Sort algorithm.
+
+### Approach & Efficency
+See [blog](./code-challenges/mergeSort/blog.md) entry.
+
+### Visual
+![Merge Sort](./assets/merge-sort.jpg)
 
 # Data Structures
 ## [Linked Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/25)
