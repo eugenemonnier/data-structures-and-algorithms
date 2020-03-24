@@ -9,7 +9,6 @@ function quickSort (arr, left = 0, right = arr.length - 1) {
 
 function partition (arr, left, right) {
   const pivot = arr[Math.floor(Math.random() * (right - left + 1) + left)]
-
   while (left <= right) {
     while (arr[left] < pivot) {
       left++
