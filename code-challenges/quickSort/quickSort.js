@@ -2,14 +2,13 @@ function quickSort (arr, left = 0, right = arr.length - 1) {
   if (arr.length > 1) {
     const position = partition(arr, left, right)
     if (left < position - 1) quickSort(arr, left, position - 1)
-    if (position < right) quickSort(arr, position, right)
+    if (position < right) quickSort(arr, position + 1, right)
   }
   return arr
 }
 
 function partition (arr, left, right) {
   const pivot = arr[Math.floor(Math.random() * (right - left + 1) + left)]
-
   while (left <= right) {
     while (arr[left] < pivot) {
       left++

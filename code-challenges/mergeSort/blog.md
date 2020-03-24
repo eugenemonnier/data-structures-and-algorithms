@@ -7,4 +7,6 @@ Next it will call a helper function (we will call this one merge) that will sort
 
 The merge function will continue this process till it reaches the end of one of the arrays(ie left). At which point it will append the remaining elements from the other arr (ie right) until both arrays are combined to be one. This sort and merge process will continue on until the call stack is completed, returning the a sorted array of the same length as the input array.
 
+This algorithim has a time complexity of O(n log n) and a space complxity of O(n).
+
 ![Merge Sort](../../assets/merge-sort.jpg)
