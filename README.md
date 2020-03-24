@@ -137,7 +137,7 @@ See [blog](./code-challenges/mergeSort/blog.md) entry.
 ### Approach & Efficency
 
 
-## [Repeated Words](#repeated-words)
+## [Repeated Words](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/41)
 
 
 ### Challenge
