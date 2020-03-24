@@ -7,6 +7,8 @@
 - [FizzBuzz Tree](#fizzbuzz-tree)<br/>
 - [Selection Sort](#selection-sort)<br/>
 - [Merge Sort](#merge-sort)<br/>
+- [Quick Sort](#quick-sort)<br/>
+- [Repeated Words](#repeated-words)<br/>
 
 [Data Structures](#data-structures)
 - [Linked Lists](#linked-lists)<br/>
@@ -126,6 +128,26 @@ See [blog](./code-challenges/mergeSort/blog.md) entry.
 
 ### Visual
 ![Merge Sort](./assets/merge-sort.jpg)
+
+## [Quick Sort](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/40)
+
+### Challenge
+
+
+### Approach & Efficency
+
+
+## [Repeated Words](#repeated-words)
+
+
+### Challenge
+Write a function that accepts a lengthy string parameter.
+
+### Approach & Efficency
+To start off this function, we create 4 new variables. `modStr` that is set to the value of the input string, lowercased and with all punctuation removed. This is done so we don't modify the input. `wordMap` a new hashmap. `matchedWord` set to a string value of 'No Match!'. This variable will store the value of the first repeated word. If there are no repeated words it will return the string 'No Match!' as the output of our function. Lastly, `wordArr`, which is set to the value of `modStr` that splits the string up by spaces, creating an array of individual words. Now we go into a `for` loop that will iterate over the `wordArr`. In that loop we will check to see if the `wordMap` has a key that is the same as the current word in `wordArr`. If that is the case `matchedWord` will be set to the value of the current word in the `wordArr` array. Then it will break out of the loop. Otherwise it will set the key value pair of `wordMap` to the current word in the `wordArr` array. Finally, outside the loop we return `matchedWord`.
+
+### Visual
+![Repeated Words](./assets/repeated-words.jpg)
 
 # Data Structures
 ## [Linked Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/25)
