@@ -11,6 +11,18 @@ class BinaryTree {
     this.root = null
   }
 
+  matchTree (arr) {
+    const output = []
+    const matchTraverse = (Node, arr) => {
+      if (!Node) return
+      if (arr.includes(Node.value)) output.push(Node.value)
+      if (Node.left) matchTraverse(Node.left, arr)
+      if (Node.right) matchTraverse(Node.right, arr)
+    }
+    matchTraverse(this.root, arr)
+    return output
+  }
+
   preOrder () {
     const output = []
     const traverse = (Node) => {
