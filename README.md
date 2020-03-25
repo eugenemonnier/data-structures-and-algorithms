@@ -9,6 +9,7 @@
 - [Merge Sort](#merge-sort)<br/>
 - [Quick Sort](#quick-sort)<br/>
 - [Repeated Words](#repeated-words)<br/>
+- [Tree Intersection](#tree-intersection)<br/>
 
 [Data Structures](#data-structures)
 - [Linked Lists](#linked-lists)<br/>
@@ -139,7 +140,6 @@ See [blog](./code-challenges/mergeSort/blog.md) entry.
 
 ## [Repeated Words](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/41)
 
-
 ### Challenge
 Write a function that accepts a lengthy string parameter.
 
@@ -148,6 +148,22 @@ To start off this function, we create 4 new variables. `modStr` that is set to t
 
 ### Visual
 ![Repeated Words](./assets/repeated-words.jpg)
+
+### [Tree Intersection](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/42)
+
+### Challenge
+- Write a function called `tree_intersection` that takes two binary tree parameters.
+- Without utilizing any of the built-in library methods available to your language, return a set of values found in both trees.
+
+### Approach & Efficency
+After defining the function `treeIntersection` which takes in two trees `(treeA, treeB)`. Then we define an array called `treeArr` and set its value to the output of [`treeA.preOrder()`](./code-challenges/Data-Structures/tree/tree.js). Next, we define another array called `outputArr` and set its value to the output of `treeB.matchTree(treeArr)`. 
+
+From there we will go into our new method `matchTree(arr)` which is a part of the `BinaryTree` class. In that method we'll define an array called `output`. Then we will define another function called `matchTraverse(Node, arr)` which takes in a node and an array. It will first check to see if the `Node` is empty and if so will exit the function. Then it will check if our `treeArr` array contains the current value of `Node.value`. If it does it will push that value to our `output` array. Then it'll check if `Node.left` exists and if so will call `matchTraverse(Node.left, arr)`. Then do the same for `Node.right`  calling `matchTraverse(Node.right, arr)` if it exists. Outside of that function we call `matchTraverse` on `this.root` & `arr` to start traversing the tree. Returning the `output` from `matchTree`, which is what `outputArr` gets set to.
+
+Back in the function `treeIntersection`, we will check to see if `outputArr` contains any values. If it does not then the string `'No match found.'` will get pushed to `outputArr`. Finally we get our result by returning `outputArr`.
+
+### Visual
+![Tree Intersection](./assets/tree-intersection.jpg)
 
 # Data Structures
 ## [Linked Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/25)
