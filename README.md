@@ -20,6 +20,7 @@
 - [Queue with Stacks](#queue-with-stacks)
 - [Breadth First](#breadth-first)
 - [Maximum Binary Tree](#maximum-binary-tree)
+- [Graph](#graph)
 
 
 # Algorithms
@@ -269,7 +270,7 @@ Created PseudoQueue class and methods
 - For the `PseudoQueue` class, I created the methods `enqueue` and `dequeue`.
   - For the `enqueue` method, I created the variables `firstStack` & `secondStack` as instances of `PseudoQueue`. If the `PseudoQueue` is empty, `push` the `value` to `secondstack`. Otherwise create the variable `currNode` and set to the `PseudoQueue`'s `top`. Then traverse the `PseudoQueue`, `push`ing to the `firstStack` the `currNode.value`. Once reaching the end, `push`ing the given `value`. After which, going to traverse through `firstStack` and push each `value` to the `secondStack`. Finally setting `this.stop` to `secondStack.top` and returning `this.stop`.
 
-  ## [Breadth Fist](#https://github.com/eugenemonnier/data-structures-and-algorithms/pull/34)
+  ## [Breadth Fist](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/34)
   Added `breadthOrder` method to `BinaryTree` class.
 
   ### Challenge
@@ -278,7 +279,7 @@ Created PseudoQueue class and methods
   ### Approach & Efficency
   For the breadth first traversal approach, we are going to use a queue data structure. Starting off, we define two empty arrays, `output` and `queue`. Next we'll check if the tree's `root` is not `null`. If it isn't `null`, `this.root` will be pushed to `queue`. Then we will traverse through the tree while the `queue.length` is greater than 0. In that look we create the variable `current` and set it to the node at `queue[0]`. Then we'll check to see if current node has a left branch. If it does, `current.left` will be pushed to `queue`. We will also check to see if the current node has a right branch. If it does, `current.right` will be pushed to `queue`. Before we remove the first node from the `queue` the value of that node is pushed to the `output` array. Finally `output` is returned from the function.
 
-  ## [Maximum Binary Tree](#https://github.com/eugenemonnier/data-structures-and-algorithms/pull/35)
+  ## [Maximum Binary Tree](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/35)
   Added `maximumBinary` method to `BinaryTree` class.
 
   ### Challenge
@@ -286,3 +287,29 @@ Created PseudoQueue class and methods
 
   ### Approach & Efficency
   For the `maximumBinary` method, we create the variable `maxVal` and set it to `-Infinity`. Then we traverse the tree checking if the current `Node.value` is greater than `maxVal`. If so, `maxVal` is set to `Node.val`. Finally the method will return `maxVal`.
+
+## [Graph](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/43)
+
+### Challenge
+- Implement your own Graph. The graph should be represented as an adjacency list, and should include the following methods:
+
+- AddNode()
+  - Adds a new node to the graph
+  - Takes in the value of that node
+  - Returns the added node
+- AddEdge()
+  - Adds a new edge between two nodes in the graph
+  - Include the ability to have a “weight”
+  - Takes in the two nodes to be connected by the edge
+  - Both nodes should already be in the Graph
+- GetNodes()
+  - Returns all of the nodes in the graph as a collection (set, list, or similar)
+- GetNeighbors()
+  - Returns a collection of edges connected to the given node
+  - Takes in a given node
+  - Include the weight of the connection in the returned collection
+- Size()
+  - Returns the total number of nodes in the graph
+
+### Visual
+![Graph]('./assets/graphs.jpg')

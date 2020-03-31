@@ -15,7 +15,8 @@
   "license": "MIT",
   "dependencies": {
     "jest": "^24.9.0",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "minimist": "^1.2.2"
   },
   "standard": {
     "env": "jest"
