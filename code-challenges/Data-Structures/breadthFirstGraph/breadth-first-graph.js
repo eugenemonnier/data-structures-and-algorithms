@@ -6,10 +6,9 @@ class BFT extends Graphs {
     const result = []
     const visited = []
     const nodeQueue = new Queue()
-    this.adjList.forEach(visitedList)
-    function visitedList (value, key, map) {
+    this.adjList.forEach((value, key) => {
       visited.push({ [key]: false })
-    }
+    })
     visited[node] = true
     nodeQueue.enqueue(node)
 
@@ -27,22 +26,5 @@ class BFT extends Graphs {
     return result
   }
 }
-
-const graph = new BFT()
-graph.addNode('Jakku')
-graph.addNode('Takodana')
-graph.addNode('Starkiller Base')
-graph.addNode('Kijimi')
-graph.addNode('Kef Bir')
-graph.addNode('Exegol')
-graph.addEdge('Jakku', 'Takodana')
-graph.addEdge('Kijimi', 'Takodana')
-graph.addEdge('Jakku', 'Starkiller Base')
-graph.addEdge('Starkiller Base', 'Takodana')
-graph.addEdge('Starkiller Base', 'Kijimi')
-graph.addEdge('Starkiller Base', 'Kef Bir')
-graph.addEdge('Kijimi', 'Kef Bir')
-graph.addEdge('Exegol', 'Kef Bir')
-console.log(graph.breadthFirst('Jakku'))
 
 module.exports = BFT

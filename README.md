@@ -312,4 +312,5 @@ Created PseudoQueue class and methods
   - Returns the total number of nodes in the graph
 
 ### Visual
-![Graph]('./assets/graphs.jpg')
+![Graph](./assets/graph.jpg)
+

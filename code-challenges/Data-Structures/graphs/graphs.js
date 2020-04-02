@@ -9,9 +9,9 @@ class Graph {
     this.adjList.set(val, [])
   }
 
-  addEdge (nodeA, nodeB) {
-    this.adjList.get(nodeA).push(nodeB)
-    this.adjList.get(nodeB).push(nodeA)
+  addEdge (nodeA, nodeB, cost) {
+    this.adjList.get(nodeA).push({ node: nodeB, cost: cost })
+    this.adjList.get(nodeB).push({ node: nodeA, cost: cost })
   }
 
   getNodes () {
