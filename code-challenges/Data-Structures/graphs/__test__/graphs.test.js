@@ -24,9 +24,9 @@ describe('Graph module', () => {
   })
   describe('addEdge', () => {
     test('should update adjList key\'s value of graph instance', () => {
-      graph.addEdge('A', 'B')
-      expect(graph.adjList.get('A')).toEqual(['B'])
-      expect(graph.adjList.get('B')).toEqual(['A'])
+      graph.addEdge('A', 'B', 2)
+      expect(graph.adjList.get('A')).toMatchObject([{ node: 'B', cost: 2 }])
+      expect(graph.adjList.get('B')).toMatchObject([{ node: 'A', cost: 2 }])
     })
   })
   describe('getNodes', () => {
@@ -39,13 +39,13 @@ describe('Graph module', () => {
       graph.addNode('C')
       graph.addNode('D')
       graph.addNode('E')
-      graph.addEdge('B', 'C')
-      graph.addEdge('B', 'D')
-      graph.addEdge('B', 'E')
-      graph.addEdge('A', 'E')
-      graph.addEdge('C', 'D')
-      graph.addEdge('D', 'E')
-      expect(graph.getNeighbors('B')).toEqual(['A', 'C', 'D', 'E'])
+      graph.addEdge('B', 'C', 3)
+      graph.addEdge('B', 'D', 6)
+      graph.addEdge('B', 'E', 1)
+      graph.addEdge('A', 'E', 9)
+      graph.addEdge('C', 'D', 2)
+      graph.addEdge('D', 'E', 4)
+      expect(graph.getNeighbors('B')).toMatchObject([{ node: 'A', cost: 2 }, { node: 'C', cost: 3 }, { node: 'D', cost: 6 }, { node: 'E', cost: 1 }])
     })
     test('size should return the number of nodes in the graph instance', () => {
       expect(graph.size()).toBe(5)
