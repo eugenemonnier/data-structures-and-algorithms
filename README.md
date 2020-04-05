@@ -21,6 +21,9 @@
 - [Breadth First](#breadth-first)
 - [Maximum Binary Tree](#maximum-binary-tree)
 - [Graph](#graph)
+- [Graph Breadth First](#graph-breadth-first)
+- [Get Edge](#get-edge)
+- [Graph Depth First](#graph-depth-first)
 
 
 # Algorithms
@@ -314,3 +317,26 @@ Created PseudoQueue class and methods
 ### Visual
 ![Graph](./assets/graph.jpg)
 
+## [Graph Breadth First](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/44)
+
+### Challenge
+- Extend your graph object with a breadth-first traversal method that accepts a starting node. Without utilizing any of the built-in methods available to your language, return a collection of nodes in the order they were visited. Display the collection.
+
+### Visual
+
+
+## [Get Edge](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/45)
+
+### Challenge
+- Write a function based on the specifications above, which takes in a graph, and an array of city names. Without utilizing any of the built-in methods available to your language, return whether the full trip is possible with direct flights, and how much it would cost.
+
+### Visual
+![Graph](./assets/get-edge.jpg)
+
+## [Graph Depth First](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/46)
+
+### Challenge
+- Create a function that accepts an adjacency list as a graph, and conducts a depth first traversal.
+
+### Visual
+![Graph](./assets/depth-first.jpg)
