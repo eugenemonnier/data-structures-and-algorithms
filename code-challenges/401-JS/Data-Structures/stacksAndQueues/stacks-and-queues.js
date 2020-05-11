@@ -3,25 +3,25 @@ class Node {
     this.value = value
     this.next = null
   }
-} 
+}
 
 class Stack {
   constructor () {
     this.top = null
   }
 
-  peek() {
+  peek () {
     return this.top.value
   }
 
-  push(value) {
-    let newNode = new Node(value)
+  push (value) {
+    const newNode = new Node(value)
     newNode.next = this.top
     this.top = newNode
     return this.top
   }
 
-  pop() {
+  pop () {
     if (!this.top) {
       return undefined
     } else if (!this.top.next) {
@@ -34,8 +34,8 @@ class Stack {
     }
   }
 
-  isEmpty() {
-    return !this.top ? true : false
+  isEmpty () {
+    return !this.top
   }
 }
 
@@ -44,8 +44,8 @@ class Queue {
     this.front = null
   }
 
-  enqueue(value) {
-    let newNode = new Node(value)
+  enqueue (value) {
+    const newNode = new Node(value)
     if (!this.front) {
       this.front = newNode
     } else {
@@ -58,7 +58,7 @@ class Queue {
     return this.front
   }
 
-  dequeue() {
+  dequeue () {
     let dequeueVal
     if (!this.front) {
       return undefined
@@ -73,12 +73,12 @@ class Queue {
     return dequeueVal
   }
 
-  peek() {
+  peek () {
     return this.front.value
   }
 
-  isEmpty() {
-    return !this.front ? true : false
+  isEmpty () {
+    return !this.front
   }
 }
 

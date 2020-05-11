@@ -1,26 +1,25 @@
 const { Stack, Node } = require('../stacksAndQueues/stacks-and-queues')
 
 class PseudoQueue extends Stack {
-
-  constructor() {
+  constructor () {
     super(top)
   }
 
-  enqueue(value) {
-    let firstStack = new PseudoQueue()
-    let secondStack = new PseudoQueue()
-    if(!this.top) {
+  enqueue (value) {
+    const firstStack = new PseudoQueue()
+    const secondStack = new PseudoQueue()
+    if (!this.top) {
       secondStack.push(value)
     } else {
       let currNode = this.top
-      while(currNode.next) {
+      while (currNode.next) {
         firstStack.push(currNode.value)
         currNode = currNode.next
       }
       firstStack.push(currNode.value)
       firstStack.push(value)
       let otherNode = firstStack.top
-      while(otherNode.next) {
+      while (otherNode.next) {
         secondStack.push(otherNode.value)
         otherNode = otherNode.next
       }
@@ -30,7 +29,7 @@ class PseudoQueue extends Stack {
     return this.top
   }
 
-  dequeue() {
+  dequeue () {
     return this.pop()
   }
 }

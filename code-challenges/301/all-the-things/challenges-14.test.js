@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
@@ -10,13 +10,13 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 
 const toTitleCase = (arr) => {
   // Solution code here...
-  const finalArr = [];
+  const finalArr = []
   arr.forEach(string => {
-    let caps = string.charAt(0).toUpperCase();
-    finalArr.push(caps + string.substring(1));
-  });
-  return finalArr;
-};
+    const caps = string.charAt(0).toUpperCase()
+    finalArr.push(caps + string.substring(1))
+  })
+  return finalArr
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -28,7 +28,7 @@ The names should be combined into a single string with each character name separ
 For example, "Lando Calrisian - Boba Fett - Princess Amidala".
 ------------------------------------------------------------------------------------------------ */
 
-let starWarsData = [{
+const starWarsData = [{
   name: 'Luke Skywalker',
   height: '172',
   mass: '77',
@@ -36,7 +36,7 @@ let starWarsData = [{
   skin_color: 'fair',
   eye_color: 'blue',
   birth_year: '19BBY',
-  gender: 'male',
+  gender: 'male'
 },
 {
   name: 'C-3PO',
@@ -87,14 +87,14 @@ let starWarsData = [{
   eye_color: 'none',
   birth_year: '27BBY',
   gender: 'n/a'
-}];
+}]
 
-let biggerThanLuke = (arr) => {
+const biggerThanLuke = (arr) => {
   // Solution code here...
-  const finalArr = [];
-  arr.forEach(charObj => charObj.mass > 77 ? finalArr.push(charObj.name) : null);
-  return finalArr.join(' - ');
-};
+  const finalArr = []
+  arr.forEach(charObj => charObj.mass > 77 ? finalArr.push(charObj.name) : null)
+  return finalArr.join(' - ')
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -110,19 +110,17 @@ Here is an example of the input:
 This data could be sorted by name or price.
 ------------------------------------------------------------------------------------------------ */
 
-
-
 const sortBy = (property, arr) => {
   // Solution code here...
-  return arr.sort(compare(property));
-};
+  return arr.sort(compare(property))
+}
 
-function compare(property) {
-  return function innerSort(a, b) {
-    const varA = a[property];
-    const varB = b[property];
-    return varA < varB ? -1 : varA > varB ? 1 : 0;
-  };
+function compare (property) {
+  return function innerSort (a, b) {
+    const varA = a[property]
+    const varB = b[property]
+    return varA < varB ? -1 : varA > varB ? 1 : 0
+  }
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -139,8 +137,8 @@ https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
 // Solution code here...
-  return url.includes('https://');
-};
+  return url.includes('https://')
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
@@ -163,26 +161,24 @@ Here is a sample board:
 // Using the new Array.prototype.flat() method
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
 Object.defineProperty(Array.prototype, 'flat', {
-  value: function(depth = 1) {
+  value: function (depth = 1) {
     return this.reduce(function (flat, toFlatten) {
-      return flat.concat((Array.isArray(toFlatten) && (depth>1)) ? toFlatten.flat(depth-1) : toFlatten);
-    }, []);
-  },
-});
-
+      return flat.concat((Array.isArray(toFlatten) && (depth > 1)) ? toFlatten.flat(depth - 1) : toFlatten)
+    }, [])
+  }
+})
 
 const detectTicTacToeWin = (board) => {
   // Solution code here...
-  let isWinner = false;
-  const winningCombo = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [6,4,2]];
-  const allPlays = board.flat(1);
-  console.log(allPlays);
+  let isWinner = false
+  const winningCombo = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [6, 4, 2]]
+  const allPlays = board.flat(1)
+  console.log(allPlays)
   winningCombo.forEach(combo =>
     ((allPlays[combo[0]].includes('X') && allPlays[combo[1]].includes('X') && allPlays[combo[2]].includes('X')) ||
-    (allPlays[combo[0]].includes('O') && allPlays[combo[1]].includes('O') && allPlays[combo[2]].includes('O'))) ? isWinner = true : null);
-  return isWinner;
-};
-
+    (allPlays[combo[0]].includes('O') && allPlays[combo[1]].includes('O') && allPlays[combo[2]].includes('O'))) ? isWinner = true : null)
+  return isWinner
+}
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
@@ -197,69 +193,65 @@ Run your tests from the console: jest challenge-14.test.js
 
 describe('Testing challenge 1', () => {
   test('It should convert each word to title case', () => {
-    const words = ['apple', 'banana', 'MacGyver'];
-    expect(toTitleCase(words)).toStrictEqual(['Apple','Banana','MacGyver']);
+    const words = ['apple', 'banana', 'MacGyver']
+    expect(toTitleCase(words)).toStrictEqual(['Apple', 'Banana', 'MacGyver'])
 
-    expect(toTitleCase([])).toStrictEqual([]);
-  });
-});
+    expect(toTitleCase([])).toStrictEqual([])
+  })
+})
 
 describe('Testing challenge 2', () => {
   test('It should return only characters that are bigger than Luke', () => {
-    expect(biggerThanLuke(starWarsData)).toStrictEqual('Darth Vader - Pex Kylar');
-    expect(biggerThanLuke([])).toStrictEqual('');
-  });
-});
+    expect(biggerThanLuke(starWarsData)).toStrictEqual('Darth Vader - Pex Kylar')
+    expect(biggerThanLuke([])).toStrictEqual('')
+  })
+})
 
 describe('Testing challenge 3', () => {
   test('It should sort items by a price', () => {
-
     expect(sortBy('price', [
-      {name: 'Sweatshirt', price: 45},
-      {name: 'Bookmark', price: 2.50},
-      {name: 'Tote bag', price: 15}
+      { name: 'Sweatshirt', price: 45 },
+      { name: 'Bookmark', price: 2.50 },
+      { name: 'Tote bag', price: 15 }
     ])).toStrictEqual([
-      {name: 'Bookmark', price: 2.50},
-      {name: 'Tote bag', price: 15},
-      {name: 'Sweatshirt', price: 45},
-    ]);
-
-  });
+      { name: 'Bookmark', price: 2.50 },
+      { name: 'Tote bag', price: 15 },
+      { name: 'Sweatshirt', price: 45 }
+    ])
+  })
 
   test('It should sort items by name', () => {
-
     expect(sortBy('name', [
-      {name: 'Sweatshirt', price: 45},
-      {name: 'Bookmark', price: 2.50},
-      {name: 'Tote bag', price: 15}
+      { name: 'Sweatshirt', price: 45 },
+      { name: 'Bookmark', price: 2.50 },
+      { name: 'Tote bag', price: 15 }
     ])).toStrictEqual([
-      {name: 'Bookmark', price: 2.50},
-      {name: 'Sweatshirt', price: 45},
-      {name: 'Tote bag', price: 15},
-    ]);
-  });
-});
+      { name: 'Bookmark', price: 2.50 },
+      { name: 'Sweatshirt', price: 45 },
+      { name: 'Tote bag', price: 15 }
+    ])
+  })
+})
 
 describe('Testing challenge 4', () => {
   test('It should check if url is https', () => {
-
-    expect(isSecure('http://www.insecure.com')).toBe(false);
-    expect(isSecure('https://secure.com')).toBe(true);
-    expect(isSecure('https:/missingslash.org')).toBe(false);
-  });
-});
+    expect(isSecure('http://www.insecure.com')).toBe(false)
+    expect(isSecure('https://secure.com')).toBe(true)
+    expect(isSecure('https:/missingslash.org')).toBe(false)
+  })
+})
 
 describe('Testing challenge 5', () => {
   test('It should return true if there are three in a row', () => {
-    expect(detectTicTacToeWin([['X', '', 'O'], ['X', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(true);
-    expect(detectTicTacToeWin([['O', '', 'X'], ['X', 'O', 'X'], ['X', '', 'O']])).toStrictEqual(true);
-  });
+    expect(detectTicTacToeWin([['X', '', 'O'], ['X', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(true)
+    expect(detectTicTacToeWin([['O', '', 'X'], ['X', 'O', 'X'], ['X', '', 'O']])).toStrictEqual(true)
+  })
 
   test('It should return false if there are not three in a row', () => {
-    expect(detectTicTacToeWin([['X', '', 'O'], ['O', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(false);
-  });
+    expect(detectTicTacToeWin([['X', '', 'O'], ['O', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(false)
+  })
 
   test('It should not treat empty 3 in row as winner', () => {
-    expect(detectTicTacToeWin([['', '', ''], ['O', 'O', ''], ['X', 'O', 'X']])).toEqual(false);
-  });
-});
+    expect(detectTicTacToeWin([['', '', ''], ['O', 'O', ''], ['X', 'O', 'X']])).toEqual(false)
+  })
+})
