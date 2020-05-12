@@ -33,7 +33,7 @@
 
 # Python
 ## Python Algorithms
-## [Reverse an Array (Python)](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/20)
+## [Reverse an Array (Python)](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/47)
 Is it worth it? Let me work it. <br/>
 I put my arr down, flip it and reverse it. </br>
 Ti esrever dna ti pilf, nwod rra ym tup i.</br>
