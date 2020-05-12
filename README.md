@@ -1,32 +1,57 @@
 # Table of Contents
-[Algorithms](#algorithms)
-- [Reverse an Array](#reverse-an-array) <br/>
-- [Shift an Array](#shift-an-array)<br/>
-- [Array Binary Search](#array-binary-search)<br/>
-- [FIFO Animal Shelter](#fifo-animal-shelter)<br/>
-- [FizzBuzz Tree](#fizzbuzz-tree)<br/>
-- [Selection Sort](#selection-sort)<br/>
-- [Merge Sort](#merge-sort)<br/>
-- [Quick Sort](#quick-sort)<br/>
-- [Repeated Words](#repeated-words)<br/>
-- [Tree Intersection](#tree-intersection)<br/>
 
-[Data Structures](#data-structures)
-- [Linked Lists](#linked-lists)<br/>
-- [Linked Lists Insertion](#linked-lists-(insertion))<br/>
-- [Linked Lists kth](#linked-lists-kth)<br/>
-- [Linked Lists Merge Lists](#linked-lists-merge-lists)<br/>
-- [Stack and Queue Implementation](#stack-and-queue-implementation)<br/>
-- [Queue with Stacks](#queue-with-stacks)
-- [Breadth First](#breadth-first)
-- [Maximum Binary Tree](#maximum-binary-tree)
-- [Graph](#graph)
-- [Graph Breadth First](#graph-breadth-first)
-- [Get Edge](#get-edge)
-- [Graph Depth First](#graph-depth-first)
+[Python](#Python) <br/>
+* [Algorithms](#python-algorithms)
+  - [Reverse an Array](#reverse-an-array-(python)) <br/>
+
+[JavaScript](#JavaScript) <br/>
+* [Algorithms](#javascript-algorithms)
+  - [Reverse an Array](#reverse-an-array) <br/>
+  - [Shift an Array](#shift-an-array)<br/>
+  - [Array Binary Search](#array-binary-search)<br/>
+  - [FIFO Animal Shelter](#fifo-animal-shelter)<br/>
+  - [FizzBuzz Tree](#fizzbuzz-tree)<br/>
+  - [Selection Sort](#selection-sort)<br/>
+  - [Merge Sort](#merge-sort)<br/>
+  - [Quick Sort](#quick-sort)<br/>
+  - [Repeated Words](#repeated-words)<br/>
+  - [Tree Intersection](#tree-intersection)<br/>
+
+  [Data Structures](#data-structures)
+  - [Linked Lists](#linked-lists)<br/>
+  - [Linked Lists Insertion](#linked-lists-(insertion))<br/>
+  - [Linked Lists kth](#linked-lists-kth)<br/>
+  - [Linked Lists Merge Lists](#linked-lists-merge-lists)<br/>
+  - [Stack and Queue Implementation](#stack-and-queue-implementation)<br/>
+  - [Queue with Stacks](#queue-with-stacks)
+  - [Breadth First](#breadth-first)
+  - [Maximum Binary Tree](#maximum-binary-tree)
+  - [Graph](#graph)
+  - [Graph Breadth First](#graph-breadth-first)
+  - [Get Edge](#get-edge)
+  - [Graph Depth First](#graph-depth-first)
+
+# Python
+## Python Algorithms
+## [Reverse an Array (Python)](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/47)
+Is it worth it? Let me work it. <br/>
+I put my arr down, flip it and reverse it. </br>
+Ti esrever dna ti pilf, nwod rra ym tup i.</br>
+\- Missy Elliot
+
+### Challenge
+Write a function called `__reverseArray__` which takes an array as an argument. Without utilizing any of the built-in methods available to your language, return an array with elements in reversed order.
+
+### Approach & Efficency
+I used a for loop to iterate through the inputed array. Then, in a new array, I added the original array's value at the array's length minus the current index minus one. This method allows arrays of any length to be reversed.
 
 
-# Algorithms
+### Solution
+![Array Reverse](./assets/array_reverse.jpg)
+
+
+# JavaScript
+## JavaScript Algorithms
 ## [Reverse an Array](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/20)
 Is it worth it? Let me work it. <br/>
 I put my arr down, flip it and reverse it. </br>
