@@ -3,6 +3,8 @@
 [Python](#Python) <br/>
 * [Algorithms](#python-algorithms)
   - [Reverse an Array](#reverse-an-array-(python)) <br/>
+  - [Shift an Array](#shift-an-array-(python))<br/>
+  - [Array Binary Search](#array-binary-search-(python))<br/>
 
 [JavaScript](#JavaScript) <br/>
 * [Algorithms](#javascript-algorithms)
@@ -49,6 +51,35 @@ I used a for loop to iterate through the inputed array. Then, in a new array, I 
 ### Solution
 ![Array Reverse](./assets/array_reverse.jpg)
 
+## [Shift an Array (Python)](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/48)
+Creating a function to insert a value into the middle of an array.
+
+### Challenge
+Write a function called `insert_shift_array()` which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
+
+### Approach & Efficency
+I started with finding the middle index of the given array. From there I first check to see if the array is empty, and if so just push the given value into the array. Otherwise I call a function that will iterate through the array, checking if the current index value isn't equal to the middle index value I defined previously. If that is true, I push the current element into a new array. Otherwise, I first push the given value into the new array and then push the current element.
+
+This allows for arrays of any length, including zero, to return valid results. The entire solution takes about 11 lines of code.
+
+### Solution
+![Array Shift](./assets/array_shift.jpg)
+
+## [Array Binary Search (Python)](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/49)
+Creating a function to find the index of an array where the array's element is equal to the given value. If no element in the array matches, the function returns -1.
+
+### Challenge
+Write a function called BinarySearch which takes in 2 parameters: a sorted array and the search key. Without utilizing any of the built-in methods available to your language, return the index of the array’s element that is equal to the search key, or -1 if the element does not exist.
+
+### Approach & Efficency
+First, I create our recursive function that will do the actual searching for the element in the array. It starts off by setting the value of `index` equal to `ll` plus `hl` divided by 2 rounded down. Then we will check to see if `arr` at `index` is equal to our search `key`. If it is we will return the value of `index`. Otherwsie, if `ll` is greater than `hl` then the element does not exist in `arr` and we will return `-1`. Otherwise, we will check if the element of `arr` at `index` is less than `key`, and if so will recursively call `mid_point` but will replace the arg for `ll` with `index + 1`. Otherwise, we will recursively call `mid_point` but will replace the arg for `hl` with `index - 1`.
+
+Then I'll create our `binary_search` function. It will first check to see if an empty array was given for the argument, `arr`. If it was, then we will return out of the function with `-1`. We will define variables `index` and `ll` with a value of 0 and `hl` with a value of the length of `arr` minus one. Then it will return the value of the recursive function `mid_point()`.
+
+This function has a space complexity of `O(1)` and time compexity of `0(n)`. This function will work with arrays of any length, including empty arrays.
+
+### Solution
+![Array Binary Search](./assets/array_binary_search.jpg)
 
 # JavaScript
 ## JavaScript Algorithms
@@ -185,7 +216,7 @@ To start off this function, we create 4 new variables. `modStr` that is set to t
 - Without utilizing any of the built-in library methods available to your language, return a set of values found in both trees.
 
 ### Approach & Efficency
-After defining the function `treeIntersection` which takes in two trees `(treeA, treeB)`. Then we define an array called `treeArr` and set its value to the output of [`treeA.preOrder()`](./code-challenges/Data-Structures/tree/tree.js). Next, we define another array called `outputArr` and set its value to the output of `treeB.matchTree(treeArr)`. 
+After defining the function `treeIntersection` which takes in two trees `(treeA, treeB)`. Then we define an array called `treeArr` and set its value to the output of [`treeA.preOrder()`](./code-challenges/Data-Structures/tree/tree.js). Next, we define another array called `outputArr` and set its value to the output of `treeB.matchTree(treeArr)`.
 
 From there we will go into our new method `matchTree(arr)` which is a part of the `BinaryTree` class. In that method we'll define an array called `output`. Then we will define another function called `matchTraverse(Node, arr)` which takes in a node and an array. It will first check to see if the `Node` is empty and if so will exit the function. Then it will check if our `treeArr` array contains the current value of `Node.value`. If it does it will push that value to our `output` array. Then it'll check if `Node.left` exists and if so will call `matchTraverse(Node.left, arr)`. Then do the same for `Node.right`  calling `matchTraverse(Node.right, arr)` if it exists. Outside of that function we call `matchTraverse` on `this.root` & `arr` to start traversing the tree. Returning the `output` from `matchTree`, which is what `outputArr` gets set to.
 
@@ -209,7 +240,7 @@ Create `LinkedList` and `Node` classes. `LinkedList` class contains methods `ins
 - Be sure to follow your language/frameworks standard naming conventions (e.g. C# uses PascalCasing for all method and class names).
 
 ### Approach & Efficency
-After creating the `Node` & `LinkedList` classes, I created three methods: `insert()`, `includes()`, `toString()`. 
+After creating the `Node` & `LinkedList` classes, I created three methods: `insert()`, `includes()`, `toString()`.
 
 The `insert()` method creates a variable, `createNode` that calls a new instance of the `Node` constructor passing in the give value.  Then the .next key value is changed from null to the value of the linked list's head, so that the new node points to the linked list's head. Then the linked list's head is given the value of `createNode` adding the new node at the beginning of the list. This method only needs to access the head of the linked list giving it a O(1) time performance.
 
@@ -230,7 +261,7 @@ Create three additonal methods for the LinkedList class.
 
 - `.insertBefore(value, newVal)` traverses the linked list checking if the value of the next node is equal to the given `value`. When it finds that value it sets the current node to point to the new node and the new node to point to the next node. Time = O(n), Space 0(n).
 
-- `.insertAfter(value, newVal)` traverses the linked list checking if the value of the next node is equal to the given `value`. When it finds that value it sets the next node to point to the new node and the new node to point to the next next node. Time = O(n), Space 0(n). 
+- `.insertAfter(value, newVal)` traverses the linked list checking if the value of the next node is equal to the given `value`. When it finds that value it sets the next node to point to the new node and the new node to point to the next next node. Time = O(n), Space 0(n).
 
 ### Solution
 ![Linked List Insert 1](./assets/ll-insert(1).jpg)![Linked List Insert 2](./assets/ll-insert(2).jpg)
@@ -239,7 +270,7 @@ Create three additonal methods for the LinkedList class.
 Create a new method, kth().
 
 ### Challenge
-- Write a method for the Linked List class which takes a number, `k`, as a parameter. Return the node’s value that is `k` from the end of the linked list. 
+- Write a method for the Linked List class which takes a number, `k`, as a parameter. Return the node’s value that is `k` from the end of the linked list.
 
 ### Approach & Efficency
 - `.kth(k)` traverses the linked list, till it reaches the end. While it does that it pushes the value of the current node into an array. If the array's length is longer than `k` it will `shift()` off the first element in the array. Once it reaches the end of the list, as long as the length of the array is equal to the value of `k`, then the function returns the value of the array at index 0. Time = O(n), Space 0(n).
@@ -248,7 +279,7 @@ Create a new method, kth().
 Create a new function, mergeLists();
 
 ### Challenge
-- Write a function called `mergeLists` which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list. Try and keep additional space down to O(1). You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges. 
+- Write a function called `mergeLists` which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list. Try and keep additional space down to O(1). You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
 
 ### Approach & Efficency
 - `mergeLists()` takes in two lists and traverses both lists simultaneously. First `listA` is checked to see if it's current value isn't `null` and if not, that value is added to the `ziplist` through the `.append()` method. Next the same is done with `listB`. This will continue untill the value of boths lists equal `null`. Finally `ziplist` is returned.
@@ -272,13 +303,13 @@ Created a Stack class (first in last out) and a Queue class (first in first out)
   - Define a method called `isEmpty` that does not take an argument, and returns a boolean indicating whether or not the queue is empty.
 
 ### Approach & Efficency
-For the `Stack` class, I created the methods `push`, `pop`, `peek`, and `isEmpty`. 
+For the `Stack` class, I created the methods `push`, `pop`, `peek`, and `isEmpty`.
   - For the `push` method, I create a new variable, `newNode`, which is an instance of `Node` with the given `value` as the argument. The `next` property of that value is given the value of the stack's `top` property. Then the stack's `top` property is set to `newNode`.
   - For the `pop` method, I first check to see if the stack is empty. If it is, the the method returns `undefined`. Otherwise, I check if the stack has only one node on the stack by checking whether the value of the stack's `next` value exists. If it does not then we set the value of the stack's `top` to `null` and return it. Otherwise we set the stack's `top.value` to the `next.value`, then set the stack's `top.next` to the value of `top.next.next`, returning the stack's `top.value`.
   - For the `peek` method, I just return the `top.value` of the stack.
   - For the `isEmpty` method, I check if `top` of the stack exists. If so, the method returns `false`, otherwise it returns `true`.
 
-For the `Queue` class, I created the methods `enqueue`, `dequeue`, `peek`, and `isEmpty`. 
+For the `Queue` class, I created the methods `enqueue`, `dequeue`, `peek`, and `isEmpty`.
   - For the `enqueue` method, I create a new variable, `newNode`, which is an instance of `Node` with the given `value` as the argument. Then I check if the `front` of the queue exists. If it does not, I set the `front` to `newNode`. Otherwise, I create the variable `currNode` which is set to the queues `front`. From there I traverse the queue until I reach the end of the queue. At that point `currNode.next` is set to equal `newNode`. Returning the `front` of the queue.
   - For the `dequeue` method, I create a new variable, `dequeueVal`. Then I check if the `front` of the queue exists. If it does not, then the function returns `undefined`. Otherwise I check to see if the queue's `front.next` exists. If it doesn't, then `dequeueVal` is set to the queue's `front.value`, the queue's `front` is set to `null`, and the function returns `dequeueVal`. Otherwise, `dequeueVal` is set to the queue's `front.value`, the queue's `front.value` is set to `front.next.value`, the queue's `front.next` is set to `front.next.next`, and the function returns the value of `dequeueVal`.
   - For the `peek` method, I just return the `front.value` of the stack.
