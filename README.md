@@ -5,6 +5,7 @@
   - [Reverse an Array](#reverse-an-array-(python)) <br/>
   - [Shift an Array](#shift-an-array-(python))<br/>
   - [Array Binary Search](#array-binary-search-(python))<br/>
+  - [Sum Matrix](#sum_matrix)
 
 [JavaScript](#JavaScript) <br/>
 * [Algorithms](#javascript-algorithms)
@@ -80,6 +81,19 @@ This function has a space complexity of `O(1)` and time compexity of `0(n)`. Thi
 
 ### Solution
 ![Array Binary Search](./assets/array_binary_search.jpg)
+
+## [Sum Matrix](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/51)
+
+### Challenge
+Creating a function to add up each row of a 2D matrix
+
+### Approach & Efficency
+Create a function that takes in a matrix. Then create an empty list called `result`. Enumerate through the input `matrix`. Append to `result` 0. Loop through inner list, adding to `result` at `matrix` index the current value of the list.
+
+Space complexity is O(n). Time complexity is O(n<sup>2</sup>).
+
+### Solution
+![Array Binary Search](./assets/sum_matrix.jpg)
 
 # JavaScript
 ## JavaScript Algorithms
