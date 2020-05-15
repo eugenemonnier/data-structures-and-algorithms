@@ -82,7 +82,7 @@ This function has a space complexity of `O(1)` and time compexity of `0(n)`. Thi
 ### Solution
 ![Array Binary Search](./assets/array_binary_search.jpg)
 
-## [Sum Matrix](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/50)
+## [Sum Matrix](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/51)
 
 ### Challenge
 Creating a function to add up each row of a 2D matrix
