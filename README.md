@@ -20,7 +20,7 @@
   - [Repeated Words](#repeated-words)<br/>
   - [Tree Intersection](#tree-intersection)<br/>
 
-  [Data Structures](#data-structures)
+* [Data Structures](#data-structures)
   - [Linked Lists](#linked-lists)<br/>
   - [Linked Lists Insertion](#linked-lists-(insertion))<br/>
   - [Linked Lists kth](#linked-lists-kth)<br/>
@@ -94,6 +94,47 @@ Space complexity is O(n). Time complexity is O(n<sup>2</sup>).
 
 ### Solution
 ![Array Binary Search](./assets/sum_matrix.jpg)
+
+# Data Structures
+## [Linked Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/52)
+Create `LinkedList` and `Node` classes. `LinkedList` class contains methods `insert()` (inserts node at head), `includes()` (finds if linked list contains given value), and `toString()` (converts a linked list into a string value).
+
+### Challenge
+- Create a Node class that has properties for the value stored in the Node, and a pointer to the next Node.
+- Within your LinkedList class, include a head property. Upon instantiation, an empty Linked List should be created.
+  - Define a method called insert which takes any value as an argument and adds a new node with that value to the head of the list with an O(1) Time performance.
+  - Define a method called includes which takes any value as an argument and returns a boolean result depending on whether that value exists as a Node’s value somewhere within the list.
+  - Define a method called toString (or __str__ in Python) which takes in no arguments and returns a string representing all the values in the Linked List, formatted as:
+"{ a } -> { b } -> { c } -> NULL"
+- Any exceptions or errors that come from your code should be semantic, capturable errors. For example, rather than a default error thrown by your language, your code should raise/throw a custom, semantic error that describes what went wrong in calling the methods you wrote for this lab.
+- Be sure to follow your language/frameworks standard naming conventions (e.g. C# uses PascalCasing for all method and class names).
+
+### Approach & Efficency
+After creating the `Node` & `LinkedList` classes, I created three methods: `insert()`, `includes()`, `toString()`.
+
+The `insert()` method creates a variable, `new_node` that calls a new instance of the `Node` constructor passing in the give value.  Then the .next key value is changed from null to the value of the linked list's head, so that the new node points to the linked list's head. Then the linked list's head is given the value of `new_node` adding the new node at the beginning of the list. This method only needs to access the head of the linked list giving it a O(1) time performance.
+
+The `includes()` method starts by creating the variable `result` and setting its value to `false`. Then the function checks to see if the linked list is empty. If it is and the given value was `null` then the function returns `true`. If the given value was any other value, an empty linked list returns `false`. Otherwise the variable `current_node` is created and its value is set to the head of the linked list. Then while the value of `current_node.next` does not equal `null` the function traverses the linked list breaking out of the loop and returning `true` if either the `current_node.next.value`, the `current_node.value`, or the `current_node.next.next` is equal to the given value. Otherwise the function returns `false`.
+
+The `__str__()` method starts by creating an empty string variable, `linked_string`, and a variable `current_node` that is given the value of the linked list's head. If the linked list is empty the function will return a string value of `'NULL'`. Otherwise the function will traverse the linked list adding the `current_node.value` to the `linked_string` variable. If `current_node.next.next` is equal to `null` then the `current_node.next.value` will also be added to the `linked_string` variable. After which the function will return the value of the varaible `linked_string`.
+
+## [Linked Lists (Insertion)](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/52)
+Create three additonal methods for the LinkedList class.
+
+### Challenge
+- `.append(value)` which adds a new node with the given `value` to the end of the list
+- `.insert_before(value, new_val)` which add a new node with the given `new_val` immediately before the first value node
+- `.insertAfter(value, new_val)` which add a new node with the given `new_val` immediately after the first `value` node
+
+### Approach & Efficency
+- `.append(val)` traverses the linked list, till it reaches the end. Then it adds a new node with the given `val` at the end of the list. Time = O(n), Space 0(n).
+
+- `.insert_before(value, new_val)` traverses the linked list checking if the value of the next node is equal to the given `value`. When it finds that value it sets the current node to point to the new node and the new node to point to the next node. Time = O(n), Space 0(n).
+
+- `.insertAfter(value, new_val)` traverses the linked list checking if the value of the next node is equal to the given `value`. When it finds that value it sets the next node to point to the new node and the new node to point to the next next node. Time = O(n), Space 0(n).
+
+### Solution
+![Linked List Insert 1](./assets/ll-insert(1).jpg)![Linked List Insert 2](./assets/ll-insert(2).jpg)
 
 # JavaScript
 ## JavaScript Algorithms
