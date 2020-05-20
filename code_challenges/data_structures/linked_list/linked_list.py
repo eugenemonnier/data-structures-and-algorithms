@@ -79,6 +79,26 @@ class LinkedList:
         if not valid_input: return 'Search value not found'
         return self.head
 
+    def kth(self, k):
+        k += 1
+        curr_node = self.head
+        value_list = []
+
+        if (k <= 0): return 'Invalid input value. Input must be greater than -1.'
+
+        while curr_node.next:
+            value_list.append(curr_node.value)
+            if len(value_list) > k: value_list.pop(0)
+            print(value_list)
+            curr_node = curr_node.next
+
+        value_list.append(curr_node.value)
+        if len(value_list) > k: value_list.pop(0)
+
+        if len(value_list) < k: return 'Input value is greater than the length of the list.'
+        else: return value_list[0]
+
+
     def __str__(self):
         linked_string = str()
         curr_node = self.head
@@ -88,3 +108,10 @@ class LinkedList:
             curr_node = curr_node.next
         linked_string += str(curr_node.value) + ' -> None'
         return linked_string
+
+linked_list = LinkedList()
+linked_list.append(10)
+linked_list.append(20)
+linked_list.append(30)
+linked_list.append(40)
+print(linked_list.kth(4))

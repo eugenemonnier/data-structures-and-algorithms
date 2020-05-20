@@ -54,6 +54,21 @@ def test_insert_after_not_found(sample_linked_list):
     expected = 'Search value not found'
     assert actual == expected
 
+def test_kth_happy_path(sample_linked_list):
+    actual = sample_linked_list.kth(2)
+    expected = 20
+    assert actual == expected
+
+def test_kth_expected_failure(sample_linked_list):
+    actual = sample_linked_list.kth(4)
+    expected = 'Input value is greater than the length of the list.'
+    assert actual == expected
+
+def test_kth_edge_case(sample_linked_list):
+    actual = sample_linked_list.kth(-1)
+    expected = 'Invalid input value. Input must be greater than -1.'
+    assert actual == expected
+
 def test__str__(sample_linked_list):
     actual = sample_linked_list.__str__()
     expected = '10 -> 20 -> 30 -> 40 -> None'

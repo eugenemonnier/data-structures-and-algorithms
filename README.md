@@ -136,6 +136,15 @@ Create three additonal methods for the LinkedList class.
 ### Solution
 ![Linked List Insert 1](./assets/ll-insert(1).jpg)![Linked List Insert 2](./assets/ll-insert(2).jpg)
 
+## [Linked Lists kth](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/53)
+Create a new method, kth().
+
+### Challenge
+- Write a method for the Linked List class which takes a number, `k`, as a parameter. Return the node’s value that is `k` from the end of the linked list.
+
+### Approach & Efficency
+- `.kth(k)` traverses the linked list, till it reaches the end. While it does that it pushes the value of the current node into an list. If the list's length is longer than `k` it will `pop()` off the first element in the list. Once it reaches the end of the list, the method returns the value of the list at index 0. Time = O(n), Space 0(n).
+
 # JavaScript
 ## JavaScript Algorithms
 ## [Reverse an Array](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/20)
