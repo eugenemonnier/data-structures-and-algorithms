@@ -98,7 +98,6 @@ class LinkedList:
         if len(value_list) < k: return 'Input value is greater than the length of the list.'
         else: return value_list[0]
 
-
     def __str__(self):
         linked_string = str()
         curr_node = self.head
@@ -109,9 +108,16 @@ class LinkedList:
         linked_string += str(curr_node.value) + ' -> None'
         return linked_string
 
-linked_list = LinkedList()
-linked_list.append(10)
-linked_list.append(20)
-linked_list.append(30)
-linked_list.append(40)
-print(linked_list.kth(4))
+def merge_lists(list_a, list_b):
+    merged_ll = LinkedList()
+    curr_node_a = list_a.head
+    curr_node_b = list_b.head
+
+    while curr_node_a or curr_node_b:
+        if curr_node_a:
+            merged_ll.append(curr_node_a.value)
+            curr_node_a = curr_node_a.next
+        if curr_node_b:
+            merged_ll.append(curr_node_b.value)
+            curr_node_b = curr_node_b.next
+    return merged_ll

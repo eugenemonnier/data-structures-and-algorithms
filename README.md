@@ -145,6 +145,15 @@ Create a new method, kth().
 ### Approach & Efficency
 - `.kth(k)` traverses the linked list, till it reaches the end. While it does that it pushes the value of the current node into an list. If the list's length is longer than `k` it will `pop()` off the first element in the list. Once it reaches the end of the list, the method returns the value of the list at index 0. Time = O(n), Space 0(n).
 
+## [Linked Lists Merge Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/54)
+Create a new function, mergeLists();
+
+### Challenge
+- Write a function called `merge_lists` which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list.
+
+### Approach & Efficency
+- `merge_lists()` takes in two lists and traverses both lists simultaneously. First `list_a` is checked to see if it's current value isn't `None` and if not, that value is added to the `merged_ll` through the `.append()` method. Next the same is done with `listB`. This will continue untill the value of boths lists equal `None`. Finally `merged_ll` is returned.
+
 # JavaScript
 ## JavaScript Algorithms
 ## [Reverse an Array](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/20)
