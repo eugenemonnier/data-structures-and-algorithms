@@ -1,6 +1,7 @@
 import pytest
 from code_challenges.data_structures.linked_list.linked_list import Node
 from code_challenges.data_structures.linked_list.linked_list import LinkedList
+from code_challenges.data_structures.linked_list.linked_list import merge_lists
 
 def test_linked_list():
     test_list = LinkedList()
@@ -80,6 +81,24 @@ def test__str__empty_list():
     expected = 'None'
     assert actual == expected
 
+def test_merge_lists_happy_path(sample_linked_list, sample_linked_list_b):
+    merged_ll = merge_lists(sample_linked_list, sample_linked_list_b)
+    actual = merged_ll.__str__()
+    expected = '10 -> 15 -> 20 -> 25 -> 30 -> 35 -> 40 -> 45 -> 55 -> 65 -> None'
+    assert actual == expected
+
+def test_merge_lists_one_empty_ll(sample_linked_list, empty_ll):
+    merged_ll = merge_lists(sample_linked_list, empty_ll)
+    actual = merged_ll.__str__()
+    expected = '10 -> 20 -> 30 -> 40 -> None'
+    assert actual == expected
+
+def test_merge_lists_two_empty_ll(empty_ll):
+    merged_ll = merge_lists(empty_ll, empty_ll)
+    actual = merged_ll.__str__()
+    expected = 'None'
+    assert actual == expected
+
 @pytest.fixture
 def sample_linked_list():
     linked_list = LinkedList()
@@ -88,3 +107,18 @@ def sample_linked_list():
     linked_list.append(30)
     linked_list.append(40)
     return linked_list
+
+@pytest.fixture
+def sample_linked_list_b():
+    linked_list = LinkedList()
+    linked_list.append(15)
+    linked_list.append(25)
+    linked_list.append(35)
+    linked_list.append(45)
+    linked_list.append(55)
+    linked_list.append(65)
+    return linked_list
+
+@pytest.fixture
+def empty_ll():
+    return LinkedList()
