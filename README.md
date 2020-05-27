@@ -154,6 +154,52 @@ Create a new function, mergeLists();
 ### Approach & Efficency
 - `merge_lists()` takes in two lists and traverses both lists simultaneously. First `list_a` is checked to see if it's current value isn't `None` and if not, that value is added to the `merged_ll` through the `.append()` method. Next the same is done with `listB`. This will continue untill the value of boths lists equal `None`. Finally `merged_ll` is returned.
 
+## [Stack and Queue Implementation](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/55)
+Created a Stack class (first in last out) and a Queue class (first in first out)
+
+### Challenge
+- Create a `Node` class that has properties for the value stored in the Node, and a pointer to the next node.
+- Create a `Stack` class that has a `top` property. It creates an empty Stack when instantiated.
+  - This object should be aware of a default empty value assigned to `top` when the stack is created.
+  - Define a method called `push` which takes any value as an argument and adds a new node with that value to the `top` of the stack with an O(1) Time performance.
+  - Define a method called `pop` that does not take any argument, removes the node from the `top` of the stack, and returns the node’s value.
+  - Define a method called `peek` that does not take an argument and returns the value of the node located on `top` of the stack, without removing it from the stack.
+  - Define a method called `isEmpty` that does not take an argument, and returns a boolean indicating whether or not the stack is empty.
+- Create a `Queue` class that has a `front` property. It creates an empty Queue when instantiated.
+  - This object should be aware of a default empty value assigned to `front` when the queue is created.
+  - Define a method called `enqueue` which takes any value as an argument and adds a new node with that value to the back of the queue with an O(n) Time performance.
+  - Define a method called `dequeue` that does not take any argument, removes the node from the `front` of the queue, and returns the node’s value.
+  - Define a method called `peek` that does not take an argument and returns the value of the node located in the `front` of the queue, without removing it from the queue.
+  - Define a method called `isEmpty` that does not take an argument, and returns a boolean indicating whether or not the queue is empty.
+
+### Approach & Efficency
+For the `Stack` class, I created the methods `push`, `pop`, `peek`, and `isEmpty`.
+  - For the `push` method, I create a new variable, `new_node`, which is an instance of `Node` with the given `value` as the argument. The `next` property of that value is given the value of the stack's `top` property. Then the stack's `top` property is set to `new_node`.
+  - For the `pop` method, I first check to see if the stack is empty. If it is, the the method returns `None`. Otherwise, I check if the stack has only one node on the stack by checking whether the value of the stack's `next` value exists. If it does not then we set the value of the stack's `top` to `null` and return it. Otherwise we set the stack's `top.value` to the `next.value`, then set the stack's `top.next` to the value of `top.next.next`, returning the stack's `top.value`.
+  - For the `peek` method, I just return the `top.value` of the stack.
+  - For the `isEmpty` method, I check if `top` of the stack exists. If so, the method returns `false`, otherwise it returns `true`.
+
+For the `Queue` class, I created the methods `enqueue`, `dequeue`, `peek`, and `isEmpty`.
+  - For the `enqueue` method, I create a new variable, `new_node`, which is an instance of `Node` with the given `value` as the argument. Then I check if the `front` of the queue exists. If it does not, I set the `front` to `new_node`. Otherwise, I create the variable `curr_node` which is set to the queues `front`. From there I traverse the queue until I reach the end of the queue. At that point `curr_node.next` is set to equal `new_node`. Returning the `front` of the queue.
+  - For the `dequeue` method, I create a new variable, `dequeue_value`. Then I check if the `front` of the queue exists. If it does not, then the function returns `None`. Otherwise I check to see if the queue's `front.next` exists. If it doesn't, then `dequeue_value` is set to the queue's `front.value`, the queue's `front` is set to `null`, and the function returns `dequeue_value`. Otherwise, `dequeue_value` is set to the queue's `front.value`, the queue's `front.value` is set to `front.next.value`, the queue's `front.next` is set to `front.next.next`, and the function returns the value of `dequeue_value`.
+  - For the `peek` method, I just return the `front.value` of the stack.
+  - For the `isEmpty` method, I check if `front` of the stack exists. If so, the method returns `false`, otherwise it returns `true`.
+
+## [Queue with Stacks](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/56)
+Created PseudoQueue class and methods
+
+### Challenge
+- Create a brand new `PseudoQueue` class. Do not use an existing `Queue`. Instead, this `PseudoQueue` class will implement our standard queue interface (the two methods listed below), but will internally only utilize 2 `Stack` objects. Ensure that you create your class with the following methods:
+
+  - `enqueue(value)` which inserts value into the `PseudoQueue`, using a first-in, first-out approach.
+  - `dequeue()` which extracts a value from the `PseudoQueue`, using a first-in, first-out approach.
+- The `Stack` instances have only `push`, `pop`, and `peek` methods. You should use your own `Stack` implementation. Instantiate these `Stack` objects in your `PseudoQueue` constructor.
+
+###  Approach & Efficency
+- For the `PseudoQueue` class, I created the methods `enqueue` and `dequeue`.
+  - For the `enqueue` method, I created the variables `first_stack` & `second_stack` as instances of `PseudoQueue`. If the `PseudoQueue` is empty, `push` the `value` to `second_stack`. Otherwise create the variable `currNode` and set to the `PseudoQueue`'s `top`. Then traverse the `PseudoQueue`, `push`ing to the `first_stack` the `currNode.value`. Once reaching the end, `push`ing the given `value`. After which, going to traverse through `first_stack` and push each `value` to the `second_stack`. Finally setting `self.top` to `second_stack.top` and returning `self.top`.
+
+
 # JavaScript
 ## JavaScript Algorithms
 ## [Reverse an Array](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/20)
