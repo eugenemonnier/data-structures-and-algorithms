@@ -95,6 +95,25 @@ Space complexity is O(n). Time complexity is O(n<sup>2</sup>).
 ### Solution
 ![Array Binary Search](./assets/sum_matrix.jpg)
 
+## [FIFO Animal Shelter](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/57)
+Create `AnimalShelter` class with methods `enqueue(animal)` and `dequeue(pref)`
+
+### Challenge
+- Create a class called `AnimalShelter` which holds only dogs and cats. The shelter operates using a first-in, first-out approach.
+- Implement the following methods:
+  - `enqueue(animal)`: adds `animal` to the shelter. `animal` can be either a `dog` or a `cat` object.
+  - `dequeue(pref)`: returns either a dog or a cat. If `pref` is not `"dog"` or `"cat"` then return `null`.
+
+### Solution & Efficency
+I created the `AnimalShelter` class and the `enqueue` & `dequeue` methods.
+
+With the `enqueue(animal)` method, I check to see if the `animal` provided is either `dog` or `cat`. If it is, the function pushes the `animal` object to the `shelter` array. Otherwise it returns an error message.
+
+With the `dequeue(pref)` method, I check to see if `pref` is either a `dog` or `cat`. If so the function `removes` the first element in the list where the element's value is equal to `pref`. If the user did not give an arg for `pref` then `pref` is set to the `shelter.pop(0)` and the element at index 0 is removed. If the user enters in any other arg for `pref`, then `pref` is set to `None`. At the end of the function `pref` is returned.
+
+### Solution
+![FIFO Animal Shelter](./assets/fifo-animal-shelter.jpg)
+
 # Data Structures
 ## [Linked Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/52)
 Create `LinkedList` and `Node` classes. `LinkedList` class contains methods `insert()` (inserts node at head), `includes()` (finds if linked list contains given value), and `toString()` (converts a linked list into a string value).
