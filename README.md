@@ -114,6 +114,15 @@ With the `dequeue(pref)` method, I check to see if `pref` is either a `dog` or `
 ### Solution
 ![FIFO Animal Shelter](./assets/fifo-animal-shelter.jpg)
 
+## [Multi-Bracket Validation](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/58)
+
+### Challenge
+Your function should take a string as its only argument, and should return a boolean representing whether or not the brackets in the string are balanced. There are 3 types of brackets:
+
+- Round Brackets : ()
+- Square Brackets : []
+- Curly Brackets : {}
+
 # Data Structures
 ## [Linked Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/52)
 Create `LinkedList` and `Node` classes. `LinkedList` class contains methods `insert()` (inserts node at head), `includes()` (finds if linked list contains given value), and `toString()` (converts a linked list into a string value).
