@@ -70,15 +70,3 @@ def fizzify (val):
     elif val % 3 == 0: return 'fizz'
     elif val % 5 == 0: return 'buzz'
     else: return str(val)
-
-test_tree = BinaryTree()
-test_tree.add(5)
-test_tree.add(1)
-test_tree.add(56)
-test_tree.add(542)
-test_tree.add(57)
-test_tree.add(45)
-test_tree.add(55)
-
-print(test_tree.__str__())
-print(fizzbuzz_tree(test_tree).__str__())
