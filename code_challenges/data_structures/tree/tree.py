@@ -13,7 +13,7 @@ class BinaryTree:
 
         def traverse(node):
             if not node: return
-            output.push(node.value)
+            output.append(node.value)
             if node.left: traverse(node.left)
             if node.right: traverse(node.right)
 
@@ -26,7 +26,7 @@ class BinaryTree:
         def traverse(node):
             if not node: return
             if node.left: traverse(node.left)
-            output.push(node.value)
+            output.append(node.value)
             if node.right: traverse(node.right)
 
         traverse(self.root)
@@ -44,11 +44,37 @@ class BinaryTree:
         traverse(self.root)
         return output
 
+    def breadth_first(self):
+        output, queue = list(), list()
+        if not self.root: return output
+        queue.append(self.root)
+        while len(queue) > 0:
+            current = queue[0]
+            if current.left: queue.append(current.left)
+            if current.right: queue.append(current.right)
+            output.append(queue[0].value)
+            queue.pop(0)
+        return output
+
+    def __str__(self, branch = 1):
+        if not self.root: return 'None'
+        self.result = f'({self.root.value})\n'
+        def traverse(node, branch):
+
+            self.result +=  '\t' * branch + '└── (' + str(node.value) + ')\n'
+            if node.left: traverse(node.left, branch + 1)
+            if node.right: traverse(node.right, branch + 1)
+            return self.result
+        if self.root.left: traverse(self.root.left, branch)
+        if self.root.right: traverse(self.root.right, branch)
+        return f'{self.result}'
+
 class BinarySearchTree(BinaryTree):
     def __init__(self):
         super().__init__()
 
-    def add(self, val, curr_node = self.root):
+    def add(self, val, curr_node = None):
+        if not curr_node: curr_node = self.root
         if not self.root:
             self.root = Node(val)
             return self.root
@@ -79,3 +105,13 @@ class BinarySearchTree(BinaryTree):
                 else: break
             else: found = True
         return found
+
+testTree = BinaryTree()
+testTree.root = Node(10)
+testTree.root.left = Node(9)
+testTree.root.left.left = Node(8)
+testTree.root.left.right = Node(3)
+testTree.root.right = Node(5)
+testTree.root.right.left = Node(4)
+testTree.root.right.left.left = Node(2)
+print(testTree.breadth_first())
