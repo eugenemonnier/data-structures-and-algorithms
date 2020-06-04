@@ -123,6 +123,24 @@ Your function should take a string as its only argument, and should return a boo
 - Square Brackets : []
 - Curly Brackets : {}
 
+## [Breadth Fist](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/61)
+  Added `breadth_first` method to `BinaryTree` class.
+
+  ### Challenge
+  - Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available to your language, traverse the input tree using a breadth-first approach, and return a list of the values in the tree in the order they were encountered.
+
+  ### Approach & Efficency
+  For the breadth first traversal approach, we are going to use a queue data structure. Starting off, we define two empty arrays, `output` and `queue`. Next we'll check if the tree's `root` is not `null`. If it isn't `None`, `self.root` will be pushed to `queue`. Then we will traverse through the tree while the `queue.length` is greater than 0. In that look we create the variable `current` and set it to the node at `queue[0]`. Then we'll check to see if current node has a left branch. If it does, `current.left` will be pushed to `queue`. We will also check to see if the current node has a right branch. If it does, `current.right` will be pushed to `queue`. Before we remove the first node from the `queue` the value of that node is pushed to the `output` array. Finally `output` is returned from the function.
+
+  ## [Maximum Binary Tree](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/35)
+  Added `maximum_binary` method to `BinaryTree` class.
+
+  ### Challenge
+  - Write an instance method called `maximumBinary`. Without utilizing any of the built-in methods available to your language, return the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
+
+  ### Approach & Efficency
+  For the `maximum_binary` method, we create the variable `max_val` and set it to `-Infinity`. Then we traverse the tree checking if the current `node.value` is greater than `max_val`. If so, `max_val` is set to `node.value`. Finally the method will return `max_val`.
+
 # Data Structures
 ## [Linked Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/52)
 Create `LinkedList` and `Node` classes. `LinkedList` class contains methods `insert()` (inserts node at head), `includes()` (finds if linked list contains given value), and `toString()` (converts a linked list into a string value).

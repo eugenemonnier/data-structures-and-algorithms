@@ -56,6 +56,18 @@ class BinaryTree:
             queue.pop(0)
         return output
 
+    def find_maximum_value(self):
+        return self.max_binary_helper(self.root)
+
+    def max_binary_helper(self, node, max_val = float('-inf')):
+        if not node: return max_val
+        if node.value > max_val: max_val = node.value
+        if node.left:
+            max_val = self.max_binary_helper(node.left, max_val)
+        if node.right:
+            max_val = self.max_binary_helper(node.right, max_val)
+        return max_val
+
     def __str__(self, branch = 1):
         if not self.root: return 'None'
         self.result = f'({self.root.value})\n'
@@ -107,11 +119,11 @@ class BinarySearchTree(BinaryTree):
         return found
 
 testTree = BinaryTree()
-testTree.root = Node(10)
-testTree.root.left = Node(9)
-testTree.root.left.left = Node(8)
+testTree.root = Node(100)
+testTree.root.left = Node(19)
+testTree.root.left.left = Node(82)
 testTree.root.left.right = Node(3)
 testTree.root.right = Node(5)
-testTree.root.right.left = Node(4)
+testTree.root.right.left = Node(42)
 testTree.root.right.left.left = Node(2)
-print(testTree.breadth_first())
+print(testTree.find_maximum_value())
