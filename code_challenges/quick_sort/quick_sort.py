@@ -26,5 +26,3 @@ def swap(arr, left, right):
     temp = arr[left]
     arr[left] = arr[right]
     arr[right] = temp
-
-print(quick_sort([20,18,12,8,5,-2]))

@@ -141,6 +141,17 @@ Your function should take a string as its only argument, and should return a boo
   ### Approach & Efficency
   For the `maximum_binary` method, we create the variable `max_val` and set it to `-Infinity`. Then we traverse the tree checking if the current `node.value` is greater than `max_val`. If so, `max_val` is set to `node.value`. Finally the method will return `max_val`.
 
+## [Repeated Words](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/66)
+
+### Challenge
+Write a function that accepts a lengthy string parameter.
+
+### Approach & Efficency
+To start off this function, we create 4 new variables. `mod_str` that is set to the value of the input string, lowercased and with all punctuation removed. This is done so we don't modify the input. `word_dict` a new hashmap. `matched_word` set to a string value of 'No Match!'. This variable will store the value of the first repeated word. If there are no repeated words it will return the string 'No Match!' as the output of our function. Lastly, `word_arr`, which is set to the value of `mod_str` that splits the string up by spaces, creating an array of individual words. Now we go into a `for` loop that will iterate over the `word_arr`. In that loop we will check to see if the `word_dict` has a key that is the same as the current word in `word_arr`. If that is the case `matched_word` will be set to the value of the current word in the `word_arr` array. Then it will break out of the loop. Otherwise it will set the key value pair of `word_dict` to the current word in the `word_arr` array. Finally, outside the loop we return `matched_word`.
+
+### Visual
+![Repeated Words](./assets/repeated-words.jpg)
+
 # Data Structures
 ## [Linked Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/52)
 Create `LinkedList` and `Node` classes. `LinkedList` class contains methods `insert()` (inserts node at head), `includes()` (finds if linked list contains given value), and `toString()` (converts a linked list into a string value).
