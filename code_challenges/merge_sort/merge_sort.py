@@ -4,8 +4,8 @@ def merge_sort(arr):
         mid = n // 2
         left = arr[0:mid]
         right = arr[mid:n + 1]
-        merge_sort(left)
-        merge_sort(right)
+        left = merge_sort(left)
+        right = merge_sort(right)
         merge(left, right, arr)
     return arr
 
