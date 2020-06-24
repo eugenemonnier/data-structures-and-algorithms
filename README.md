@@ -152,6 +152,23 @@ To start off this function, we create 4 new variables. `mod_str` that is set to 
 ### Visual
 ![Repeated Words](./assets/repeated-words.jpg)
 
+### [Tree Intersection](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/67)
+
+### Challenge
+- Write a function called `tree_intersection` that takes two binary tree parameters.
+- Without utilizing any of the built-in library methods available to your language, return a set of values found in both trees.
+
+### Approach & Efficency
+After defining the function `tree_intersection` which takes in two trees `(tree_a, tree_b)`. Then we define an array called `tree_arr` and set its value to the output of `tree_a.pre_order()`. Next, we define another array called `output_arr` and set its value to the output of `tree_b.match_tree(tree_arr)`.
+
+From there we will go into our new method `match_tree(arr)` which is a part of the `BinaryTree` class. In that method we'll define an array called `output`. Then we will define another function called `match_traverse(node, arr)` which takes in a node and an array. It will first check to see if the `node` is empty and if so will exit the function. Then it will check if our `tree_arr` array contains the current value of `node.value`. If it does it will push that value to our `output` array. Then it'll check if `node.left` exists and if so will call `match_traverse(node.left, arr)`. Then do the same for `node.right`  calling `match_traverse(node.right, arr)` if it exists. Outside of that function we call `match_traverse` on `this.root` & `arr` to start traversing the tree. Returning the `output` from `match_tree`, which is what `output_arr` gets set to.
+
+Back in the function `tree_intersection`, we will check to see if `output_arr` contains any values. If it does not then the string `'No match found.'` will get pushed to `output_arr`. Finally we get our result by returning `output_arr`.
+
+### Visual
+![Tree Intersection](./assets/tree-intersection.jpg)
+
+
 # Data Structures
 ## [Linked Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/52)
 Create `LinkedList` and `Node` classes. `LinkedList` class contains methods `insert()` (inserts node at head), `includes()` (finds if linked list contains given value), and `toString()` (converts a linked list into a string value).
@@ -255,7 +272,6 @@ Created PseudoQueue class and methods
 ###  Approach & Efficency
 - For the `PseudoQueue` class, I created the methods `enqueue` and `dequeue`.
   - For the `enqueue` method, I created the variables `first_stack` & `second_stack` as instances of `PseudoQueue`. If the `PseudoQueue` is empty, `push` the `value` to `second_stack`. Otherwise create the variable `currNode` and set to the `PseudoQueue`'s `top`. Then traverse the `PseudoQueue`, `push`ing to the `first_stack` the `currNode.value`. Once reaching the end, `push`ing the given `value`. After which, going to traverse through `first_stack` and push each `value` to the `second_stack`. Finally setting `self.top` to `second_stack.top` and returning `self.top`.
-
 
 # JavaScript
 ## JavaScript Algorithms
