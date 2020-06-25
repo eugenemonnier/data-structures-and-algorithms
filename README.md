@@ -6,6 +6,7 @@
   - [Shift an Array](#shift-an-array-(python))<br/>
   - [Array Binary Search](#array-binary-search-(python))<br/>
   - [Sum Matrix](#sum_matrix)
+  - [Left Join](#left_join)
 
 [JavaScript](#JavaScript) <br/>
 * [Algorithms](#javascript-algorithms)
@@ -168,6 +169,25 @@ Back in the function `tree_intersection`, we will check to see if `output_arr` c
 ### Visual
 ![Tree Intersection](./assets/tree-intersection.jpg)
 
+### [Left Join](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/68)
+
+### Challenge
+- Write a function that LEFT JOINs two hashmaps into a single data structure.
+- The first parameter is a hashmap that has word strings as keys, and a synonym of the key as values.
+- The second parameter is a hashmap that has word strings as keys, and antonyms of the key as values.
+- Combine the key and corresponding values (if they exist) into a new data structure according to LEFT JOIN logic.
+- LEFT JOIN means all the values in the first hashmap are returned, and if values exist in the “right” hashmap, they are appended to the result row. If no values exist in the right hashmap, then some flavor of `None` should be appended to the result row.
+- The returned data structure that holds the results is up to you. It doesn’t need to exactly match the output below, so long as it achieves the LEFT JOIN logic.
+- Avoid utilizing any of the library methods available to your language.
+
+
+### Approach & Efficency
+Our function `left_join` will have two parameters, `left_map` and `right_map`. For this function we will start off with creating an empty list, called `output`. Then we will loop through all the keys in `left_map`. Inside the loop we will define a new list, called `temp`, and give it two values, the current `key` and the value of `left_map` at the current `key`. Next we will check if the `right_map` contains the current `key`, and if it does, append the value of `right_map` at the current `key` to `temp`. Otherwise we will append `None` to `temp`. Next we will append `temp` to `output. Finally, outside the loop, we will return `output`.
+
+This solution will have a time complexity of `O(n)` as the function will only loop through all the keys in `left_map` once. Looking up a key in a hashmap and appending to a list have time complexities of `O(1)`. The space complexity is also `O(n)` as the size of our new data structure will never be longer than the size of our input.
+
+### Visual
+![Left Join](./assets/left_join.jpg)
 
 # Data Structures
 ## [Linked Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/52)
