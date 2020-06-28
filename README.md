@@ -293,6 +293,34 @@ Created PseudoQueue class and methods
 - For the `PseudoQueue` class, I created the methods `enqueue` and `dequeue`.
   - For the `enqueue` method, I created the variables `first_stack` & `second_stack` as instances of `PseudoQueue`. If the `PseudoQueue` is empty, `push` the `value` to `second_stack`. Otherwise create the variable `currNode` and set to the `PseudoQueue`'s `top`. Then traverse the `PseudoQueue`, `push`ing to the `first_stack` the `currNode.value`. Once reaching the end, `push`ing the given `value`. After which, going to traverse through `first_stack` and push each `value` to the `second_stack`. Finally setting `self.top` to `second_stack.top` and returning `self.top`.
 
+## [Graph](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/69)
+
+### Challenge
+- Implement your own Graph. The graph should be represented as an adjacency list, and should include the following methods:
+
+- AddNode()
+  - Adds a new node to the graph
+  - Takes in the value of that node
+  - Returns the added node
+- AddEdge()
+  - Adds a new edge between two nodes in the graph
+  - Include the ability to have a “weight”
+  - Takes in the two nodes to be connected by the edge
+  - Both nodes should already be in the Graph
+- GetNodes()
+  - Returns all of the nodes in the graph as a collection (set, list, or similar)
+- GetNeighbors()
+  - Returns a collection of edges connected to the given node
+  - Takes in a given node
+  - Include the weight of the connection in the returned collection
+- Size()
+  - Returns the total number of nodes in the graph
+
+### Visual
+![Graph](./assets/graph.jpg)
+
+## [Graph Breadth First](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/44)
+
 # JavaScript
 ## JavaScript Algorithms
 ## [Reverse an Array](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/20)
