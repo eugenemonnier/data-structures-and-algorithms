@@ -189,6 +189,19 @@ This solution will have a time complexity of `O(n)` as the function will only lo
 ### Visual
 ![Left Join](./assets/left_join.jpg)
 
+## [Get Edge](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/71)
+
+### Challenge
+- Write a function based on the specifications above, which takes in a graph, and an array of city names. Without utilizing any of the built-in methods available to your language, return whether the full trip is possible with direct flights, and how much it would cost.
+
+### Approach & Efficency
+The `get_edges` method takes in `node_a` and `node_b` as parameters. First it will get the adjacency map from `node_a` and store that in `neighbor_list`. Next it will loop through the `neighbor_list` checking if the current `neightbor['node']` value is equal to the second input, `node_b`. If it is, the method will immediately return a string, indicating the edge was found and its `weight`. If the loop concludes without finding a match, the function will return a sting of `'false, 0'`.
+
+This method has a time complexity of `O(n)` as it will only loop through the `neighbor_list` once and the `get` method has a time complexity of `O(1)`. The space complexity of this method is also `O(n)` as it creates the a list data structre which will have a length equal to the length of `node_a`'s adjacency list.
+
+### Visual
+![Graph](./assets/get-edge.jpg)
+
 # Data Structures
 ## [Linked Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/52)
 Create `LinkedList` and `Node` classes. `LinkedList` class contains methods `insert()` (inserts node at head), `includes()` (finds if linked list contains given value), and `toString()` (converts a linked list into a string value).
