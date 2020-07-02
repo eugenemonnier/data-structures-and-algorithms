@@ -197,10 +197,26 @@ This solution will have a time complexity of `O(n)` as the function will only lo
 ### Approach & Efficency
 The `get_edges` method takes in `node_a` and `node_b` as parameters. First it will get the adjacency map from `node_a` and store that in `neighbor_list`. Next it will loop through the `neighbor_list` checking if the current `neightbor['node']` value is equal to the second input, `node_b`. If it is, the method will immediately return a string, indicating the edge was found and its `weight`. If the loop concludes without finding a match, the function will return a sting of `'false, 0'`.
 
-This method has a time complexity of `O(n)` as it will only loop through the `neighbor_list` once and the `get` method has a time complexity of `O(1)`. The space complexity of this method is also `O(n)` as it creates the a list data structre which will have a length equal to the length of `node_a`'s adjacency list.
+This method has a time complexity of `O(n)` as it will only loop through the `neighbor_list` once and the `get` method has a time complexity of `O(1)`. The space complexity of this method is also `O(n)` as it creates a list data structre which will have a length equal to the length of `node_a`'s adjacency list.
 
 ### Visual
-![Graph](./assets/get-edge.jpg)
+![Get Edges](./assets/get-edge.jpg)
+
+## [Graph Depth First](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/72)
+
+### Challenge
+- Create a function that accepts an adjacency list as a graph, and conducts a depth first traversal.
+
+### Approach & Efficency
+The `depth_first` method takes in `root` as the parameter. First it will check if the graph's `node_list` contains any elements. If it does not the method will return a string of `'Graph does not contain any nodes.'` Otherwise the method will continue and create a `visited` dictionary and a `results` list. Looping through the graph's `node_list` it will build the `visited` dictionary with a key of the current `node` and a value of `false`. Next the method will check to see if the given `root` node is contained in the `visited` dictionary. If it is not it will return a string of `'Node does not exist in graph.'` Otherwise the method will continue and call the `DFT` method with arguments of `root`, `visited`, and `results. Finally the `depth_first` method will return the `results` list.
+
+The `DFT` method takes in `node`, `visited`, and `results` as parameters. It will first check if the key of `node` in the dictionary `visited` does not have a value of `True`. If so it will set the value for the key of `node` in the `visited` dictionary to True and append `node` to the `results` list. Then it will retrieve the edges for that node and store them in the `neighbors` list. Looping through that list, the method will recursively call itself with arguments of `neightbor['node']`, visited, and results. Otherwise if the key of `node` in the dictionary `visited` does have a value of `True`, it will return the `results` list.
+
+This method will have a time complexity of `O(n)` as it will traverse the entirety of the graph, visiting each node only once. The space complexity will also be `O(n)` as the method creates 2 data structures that will have lengths up to the length of the input.
+
+### Visual
+![Graph](./assets/depth-first.jpg)
+
 
 # Data Structures
 ## [Linked Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/52)
