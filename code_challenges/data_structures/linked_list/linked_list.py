@@ -6,6 +6,7 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
+        self.length = 0
 
     def append(self, val):
         new_node = Node(val)
@@ -18,6 +19,7 @@ class LinkedList:
             curr_node = curr_node.next
 
         curr_node.next = new_node
+        self.length += 1
         return self.head
 
     def includes(self, val):
@@ -35,9 +37,11 @@ class LinkedList:
         new_node = Node(val)
         new_node.next = self.head
         self.head = new_node
+        self.length += 1
         return self.head
 
     def insert_before(self, val, new_val):
+        self.length += 1
         new_node = Node(new_val)
         curr_node = self.head
         valid_input = False
@@ -59,6 +63,7 @@ class LinkedList:
         return self.head
 
     def insert_after(self, val, new_val):
+        self.length += 1
         new_node = Node(new_val)
         curr_node = self.head
         valid_input = False
