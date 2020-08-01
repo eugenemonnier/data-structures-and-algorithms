@@ -22,6 +22,14 @@ class LinkedList:
         self.length += 1
         return self.head
 
+    def array(self):
+        val_list = list()
+        current = self.head
+        while current:
+            val_list.append(current.value)
+            current = current.next
+        return val_list
+
     def includes(self, val):
         if not self.head: return False
         elif self.head.value == val: return True
