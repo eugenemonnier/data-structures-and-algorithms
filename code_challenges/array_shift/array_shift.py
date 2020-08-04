@@ -9,5 +9,3 @@ def insert__shift_arr(arr,val):
   add_indx = math.ceil(len(arr) / 2)
   iterate_arr(arr, val, add_indx, new_arr) if len(arr) else new_arr.append(val)
   return new_arr
-
-print(insert__shift_arr([1,2,4,5], 3))
