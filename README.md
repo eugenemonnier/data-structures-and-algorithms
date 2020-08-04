@@ -7,6 +7,7 @@
   - [Array Binary Search](#array-binary-search-(python))<br/>
   - [Sum Matrix](#sum_matrix)
   - [Left Join](#left_join)
+  - [Hashtable](#hashtable)
 
 [JavaScript](#JavaScript) <br/>
 * [Algorithms](#javascript-algorithms)
