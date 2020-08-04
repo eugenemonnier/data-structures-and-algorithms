@@ -279,6 +279,8 @@ Create a new function, mergeLists();
 ### Approach & Efficency
 - `merge_lists()` takes in two lists and traverses both lists simultaneously. First `list_a` is checked to see if it's current value isn't `None` and if not, that value is added to the `merged_ll` through the `.append()` method. Next the same is done with `listB`. This will continue untill the value of boths lists equal `None`. Finally `merged_ll` is returned.
 
+![Linked List Merge](./assets/ll-merge.jpg)
+
 ## [Stack and Queue Implementation](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/55)
 Created a Stack class (first in last out) and a Queue class (first in first out)
 
