@@ -124,6 +124,11 @@ Your function should take a string as its only argument, and should return a boo
 - Square Brackets : []
 - Curly Brackets : {}
 
+### Approach & Efficency
+Starting off, we will create two dictionaries for our left brackts and right brackets, and a list, `braces`. Then we will loop through each `char` in the `string`. First checking if `char` exists in the `left_bracket`. If so, we will insert `left_bracket[char]` into braces. Then check if `char` exists in `right_bracket`. If it does check if `right_bracket[char]` is equal to `braces[0]`. In that case, remove the first value from `braces`. Otherwise return `False`. Finally return the boolean value of the result of checking if `braces` length is equal to `0`.
+
+![Multi Bracket Validation](./assets/multi_bracket_validation.jpg)
+
 ## [Breadth Fist](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/61)
   Added `breadth_first` method to `BinaryTree` class.
 
@@ -312,6 +317,8 @@ For the `Queue` class, I created the methods `enqueue`, `dequeue`, `peek`, and `
   - For the `peek` method, I just return the `front.value` of the stack.
   - For the `isEmpty` method, I check if `front` of the stack exists. If so, the method returns `false`, otherwise it returns `true`.
 
+![Stacks & Queues](./assets/stacks_and_queues.jpg)
+
 ## [Queue with Stacks](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/56)
 Created PseudoQueue class and methods
 
@@ -325,6 +332,9 @@ Created PseudoQueue class and methods
 ###  Approach & Efficency
 - For the `PseudoQueue` class, I created the methods `enqueue` and `dequeue`.
   - For the `enqueue` method, I created the variables `first_stack` & `second_stack` as instances of `PseudoQueue`. If the `PseudoQueue` is empty, `push` the `value` to `second_stack`. Otherwise create the variable `currNode` and set to the `PseudoQueue`'s `top`. Then traverse the `PseudoQueue`, `push`ing to the `first_stack` the `currNode.value`. Once reaching the end, `push`ing the given `value`. After which, going to traverse through `first_stack` and push each `value` to the `second_stack`. Finally setting `self.top` to `second_stack.top` and returning `self.top`.
+
+![Queue with Stacks](./assets/queue_with_stacks.jpg)
+
 
 ## [Graph](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/69)
 
