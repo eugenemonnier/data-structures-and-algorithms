@@ -102,7 +102,6 @@ class LinkedList:
         while curr_node.next:
             value_list.append(curr_node.value)
             if len(value_list) > k: value_list.pop(0)
-            print(value_list)
             curr_node = curr_node.next
 
         value_list.append(curr_node.value)
