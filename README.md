@@ -116,6 +116,26 @@ With the `dequeue(pref)` method, I check to see if `pref` is either a `dog` or `
 ### Solution
 ![FIFO Animal Shelter](./assets/fifo-animal-shelter.jpg)
 
+## [FizzBuzz Tree](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/33)
+Create `BinaryTree` and `Node` classes. `BinaryTree` class contains methods `preOrder()` and `insert()` methods. Also create a`fizzBuzzTree` function and a `traverse` function.
+
+### Challenge
+- Write a function called FizzBuzzTree which takes a tree as an argument.
+- Without utilizing any of the built-in methods available to your language, determine whether or not the value of each node is divisible by 3, 5 or both. Create a new tree with the same structure as the original, but the values modified as follows:
+  - If the value is divisible by 3, replace the value with “Fizz”
+  - If the value is divisible by 5, replace the value with “Buzz”
+  - If the value is divisible by 3 and 5, replace the value with “FizzBuzz”
+- If the value is not divisible by 3 or 5, simply turn the number into a String.
+- Return the new tree.
+
+### Approach & Efficency
+The `fizzbuzz_tree(tree)` function takes in a binary tree and calls the `fb_tree_helper` function passing in an argument of `tree.root`. Then the function returns `tree`.
+
+The `fb_tree_helper` function takes in a node. It checks if the node is `None`. If it is, then it returns `None`. Otherwise it first checks if `node.value` is divisible by 15. If it is, then it will change `node.value` to 'fizzbuzz'. Otherwise, it will next check to see if `node.value` is divisible by 3. If it is, then it will change `node.value` to 'fizz'. Otherwise, it will next check to see if `node.value` is divisible by 5. If it is, then it will change `node.value` to 'buzz'. Otherwise, it will change `node.value` to a stringified version of the `node.value`.  Then the function will recursively call `fb_tree_helper` passing in `node.left` and then again call `fb_tree_helper` passing in `node.right`.
+
+### Visual
+![FizzBuzz Tree](./assets/fizzbuzz_tree.jpg)
+
 ## [Multi-Bracket Validation](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/58)
 
 ### Challenge
@@ -128,16 +148,8 @@ Your function should take a string as its only argument, and should return a boo
 ### Approach & Efficency
 Starting off, we will create two dictionaries for our left brackts and right brackets, and a list, `braces`. Then we will loop through each `char` in the `string`. First checking if `char` exists in the `left_bracket`. If so, we will insert `left_bracket[char]` into braces. Then check if `char` exists in `right_bracket`. If it does check if `right_bracket[char]` is equal to `braces[0]`. In that case, remove the first value from `braces`. Otherwise return `False`. Finally return the boolean value of the result of checking if `braces` length is equal to `0`.
 
+### Visual
 ![Multi Bracket Validation](./assets/multi_bracket_validation.jpg)
-
-## [Breadth Fist](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/61)
-  Added `breadth_first` method to `BinaryTree` class.
-
-  ### Challenge
-  - Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available to your language, traverse the input tree using a breadth-first approach, and return a list of the values in the tree in the order they were encountered.
-
-  ### Approach & Efficency
-  For the breadth first traversal approach, we are going to use a queue data structure. Starting off, we define two empty arrays, `output` and `queue`. Next we'll check if the tree's `root` is not `null`. If it isn't `None`, `self.root` will be pushed to `queue`. Then we will traverse through the tree while the `queue.length` is greater than 0. In that look we create the variable `current` and set it to the node at `queue[0]`. Then we'll check to see if current node has a left branch. If it does, `current.left` will be pushed to `queue`. We will also check to see if the current node has a right branch. If it does, `current.right` will be pushed to `queue`. Before we remove the first node from the `queue` the value of that node is pushed to the `output` array. Finally `output` is returned from the function.
 
   ## [Maximum Binary Tree](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/35)
   Added `maximum_binary` method to `BinaryTree` class.
@@ -147,6 +159,52 @@ Starting off, we will create two dictionaries for our left brackts and right bra
 
   ### Approach & Efficency
   For the `maximum_binary` method, we create the variable `max_val` and set it to `-Infinity`. Then we traverse the tree checking if the current `node.value` is greater than `max_val`. If so, `max_val` is set to `node.value`. Finally the method will return `max_val`.
+
+### Visual
+![Maximum Binary Tree](./assets/maximum_binary_tree.jpg)
+
+## [Breadth Fist Tree](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/61)
+  Added `breadth_first` method to `BinaryTree` class.
+
+  ### Challenge
+  - Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available to your language, traverse the input tree using a breadth-first approach, and return a list of the values in the tree in the order they were encountered.
+
+  ### Approach & Efficency
+  For the breadth first traversal approach, we are going to use a queue data structure. Starting off, we define two empty arrays, `output` and `queue`. Next we'll check if the tree's `root` is not `null`. If it isn't `None`, `self.root` will be pushed to `queue`. Then we will traverse through the tree while the `queue.length` is greater than 0. In that look we create the variable `current` and set it to the node at `queue[0]`. Then we'll check to see if current node has a left branch. If it does, `current.left` will be pushed to `queue`. We will also check to see if the current node has a right branch. If it does, `current.right` will be pushed to `queue`. Before we remove the first node from the `queue` the value of that node is pushed to the `output` array. Finally `output` is returned from the function.
+
+### Visual
+![Breadth First Tree](./assets/breadth_first_tree.jpg)
+## [Insertion Sort](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/63)
+Create a `Insertion_sort` function.
+
+### Challenge
+Create a function called `Insertion_sort` that takes in an array of integers and returns that array sorted lowest to highest.
+
+### Approach & Efficency
+First we create the `Insertion_sort` function that takes in an array of integers. Then we create a variable, `n`, to use for the array length. Next we enter a for loop that continues for as long as `i` is less than `n - 1`. Inside that loop we create the variable `min` and set its value to `i`. Then we go inside an inner loop. In that loop we set `j` equal to `i + 1`, and continue for as long as `j` is less than `n`. Inside that loop we will check to see if our array at index `j` is less than our array at inder `min`. If it is then we set `min` equal to `j`. After we get out of the inner loop we create the variable `temp` and set its value equal to the array at index `min` which will be the lowest value found in the inner loop. From there the array at `min` is set to the array at `i` and the array at `i` is set to the value of `temp`. After we exit the outer loop we return the array which will now be sorted lowest to highest.
+
+### Solution
+![Insertion Sort](./assets/insertion-sort.jpg)
+
+## [Merge Sort](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/39)
+Create a `mergeSort` function and test it.
+
+### Challenge
+Create a `mergeSort` function that takes in an array of integers and sorts them lowest to highest, using the Merge Sort algorithm.
+
+### Approach & Efficency
+See [blog](./code-challenges/401-JS/mergeSort/blog.md) entry.
+
+### Visual
+![Merge Sort](./assets/merge-sort.jpg)
+
+## [Quick Sort](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/40)
+
+### Challenge
+Create a `quick_sort` function.
+
+### Approach & Efficency
+
 
 ## [Repeated Words](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/66)
 
@@ -159,7 +217,7 @@ To start off this function, we create 4 new variables. `mod_str` that is set to 
 ### Visual
 ![Repeated Words](./assets/repeated-words.jpg)
 
-### [Tree Intersection](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/67)
+## [Tree Intersection](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/67)
 
 ### Challenge
 - Write a function called `tree_intersection` that takes two binary tree parameters.
@@ -262,7 +320,7 @@ Create three additonal methods for the LinkedList class.
 
 - `.insertAfter(value, new_val)` traverses the linked list checking if the value of the next node is equal to the given `value`. When it finds that value it sets the next node to point to the new node and the new node to point to the next next node. Time = O(n), Space 0(n).
 
-### Solution
+### Visual
 ![Linked List Insert 1](./assets/ll-insert(1).jpg)![Linked List Insert 2](./assets/ll-insert(2).jpg)
 
 ## [Linked Lists kth](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/53)
@@ -274,6 +332,7 @@ Create a new method, kth().
 ### Approach & Efficency
 - `.kth(k)` traverses the linked list, till it reaches the end. While it does that it pushes the value of the current node into an list. If the list's length is longer than `k` it will `pop()` off the first element in the list. Once it reaches the end of the list, the method returns the value of the list at index 0. Time = O(n), Space 0(n).
 
+### Visual
 ![Linked List kth](./assets/ll-kth.jpg)
 
 ## [Linked Lists Merge Lists](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/54)
@@ -285,6 +344,7 @@ Create a new function, mergeLists();
 ### Approach & Efficency
 - `merge_lists()` takes in two lists and traverses both lists simultaneously. First `list_a` is checked to see if it's current value isn't `None` and if not, that value is added to the `merged_ll` through the `.append()` method. Next the same is done with `listB`. This will continue untill the value of boths lists equal `None`. Finally `merged_ll` is returned.
 
+### Visual
 ![Linked List Merge](./assets/ll-merge.jpg)
 
 ## [Stack and Queue Implementation](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/55)
@@ -318,6 +378,7 @@ For the `Queue` class, I created the methods `enqueue`, `dequeue`, `peek`, and `
   - For the `peek` method, I just return the `front.value` of the stack.
   - For the `isEmpty` method, I check if `front` of the stack exists. If so, the method returns `false`, otherwise it returns `true`.
 
+### Visual
 ![Stacks & Queues](./assets/stacks_and_queues.jpg)
 
 ## [Queue with Stacks](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/56)
@@ -334,8 +395,18 @@ Created PseudoQueue class and methods
 - For the `PseudoQueue` class, I created the methods `enqueue` and `dequeue`.
   - For the `enqueue` method, I created the variables `first_stack` & `second_stack` as instances of `PseudoQueue`. If the `PseudoQueue` is empty, `push` the `value` to `second_stack`. Otherwise create the variable `currNode` and set to the `PseudoQueue`'s `top`. Then traverse the `PseudoQueue`, `push`ing to the `first_stack` the `currNode.value`. Once reaching the end, `push`ing the given `value`. After which, going to traverse through `first_stack` and push each `value` to the `second_stack`. Finally setting `self.top` to `second_stack.top` and returning `self.top`.
 
+### Visual
 ![Queue with Stacks](./assets/queue_with_stacks.jpg)
 
+## [Tree](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/59)
+
+### Challenge
+- Create a `Node` class that has properties for the value stored in the node, the left child node, and the right child node.
+- Create a `BinaryTree` class
+  - Define a method for each of the depth first traversals called `preOrder`, `inOrder`, and `postOrder` which returns an array of the values, ordered appropriately.
+
+### Visual
+![Tree](./assets/tree.jpg)
 
 ## [Graph](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/69)
 
@@ -364,6 +435,12 @@ Created PseudoQueue class and methods
 ![Graph](./assets/graph.jpg)
 
 ## [Graph Breadth First](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/44)
+
+### Challenge
+- Extend your graph object with a breadth-first traversal method that accepts a starting node. Without utilizing any of the built-in methods available to your language, return a collection of nodes in the order they were visited. Display the collection.
+
+### Visual
+
 
 # JavaScript
 ## JavaScript Algorithms
@@ -451,13 +528,13 @@ The `fizzBuzzTree(tree)` function takes in a binary tree and calls the `traverse
 The `traverse` function takes in a node. It checks if the node is `null`. If it is, then it returns `null`. Otherwise it first checks if `Node.value` is divisible by 15. If it is, then it will change `Node.value` to 'fizzbuzz'. Otherwise, it will next check to see if `Node.value` is divisible by 3. If it is, then it will change `Node.value` to 'fizz'. Otherwise, it will next check to see if `Node.value` is divisible by 5. If it is, then it will change `Node.value` to 'buzz'. Otherwise, it will change `Node.value` to a stringified version of the `Node.value`.  Then the function will recursively call `traverse` passing in `Node.left` and then again call `traverse` passing in `Node.right`.
 
 ## [Selection Sort](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/38)
-Create a `selectionSort` function.
+Create a `InsertionSort` function.
 
 ### Challenge
-Create a function called `selectionSort` that takes in an array of integers and returns that array sorted lowest to highest.
+Create a function called `InsertionSort` that takes in an array of integers and returns that array sorted lowest to highest.
 
 ### Approach & Efficency
-First we create the `selectionSort` function that takes in an array of integers. Then we create a variable, `n`, to use for the array length. Next we enter a for loop that continues for as long as `i` is less than `n - 1`. Inside that loop we create the variable `min` and set its value to `i`. Then we go inside an inner loop. In that loop we set `j` equal to `i + 1`, and continue for as long as `j` is less than `n`. Inside that loop we will check to see if our array at index `j` is less than our array at inder `min`. If it is then we set `min` equal to `j`. After we get out of the inner loop we create the variable `temp` and set its value equal to the array at index `min` which will be the lowest value found in the inner loop. From there the array at `min` is set to the array at `i` and the array at `i` is set to the value of `temp`. After we exit the outer loop we return the array which will now be sorted lowest to highest.
+First we create the `InsertionSort` function that takes in an array of integers. Then we create a variable, `n`, to use for the array length. Next we enter a for loop that continues for as long as `i` is less than `n - 1`. Inside that loop we create the variable `min` and set its value to `i`. Then we go inside an inner loop. In that loop we set `j` equal to `i + 1`, and continue for as long as `j` is less than `n`. Inside that loop we will check to see if our array at index `j` is less than our array at inder `min`. If it is then we set `min` equal to `j`. After we get out of the inner loop we create the variable `temp` and set its value equal to the array at index `min` which will be the lowest value found in the inner loop. From there the array at `min` is set to the array at `i` and the array at `i` is set to the value of `temp`. After we exit the outer loop we return the array which will now be sorted lowest to highest.
 
 ### Solution
 ![Insertion Sort](./assets/selection-sort.jpg)
