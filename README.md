@@ -198,14 +198,6 @@ See [blog](./code-challenges/401-JS/mergeSort/blog.md) entry.
 ### Visual
 ![Merge Sort](./assets/merge-sort.jpg)
 
-## [Quick Sort](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/40)
-
-### Challenge
-Create a `quick_sort` function.
-
-### Approach & Efficency
-
-
 ## [Repeated Words](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/66)
 
 ### Challenge
@@ -233,7 +225,7 @@ Back in the function `tree_intersection`, we will check to see if `output_arr` c
 ### Visual
 ![Tree Intersection](./assets/tree-intersection.jpg)
 
-### [Left Join](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/68)
+## [Left Join](https://github.com/eugenemonnier/data-structures-and-algorithms/pull/68)
 
 ### Challenge
 - Write a function that LEFT JOINs two hashmaps into a single data structure.
@@ -440,7 +432,7 @@ Created PseudoQueue class and methods
 - Extend your graph object with a breadth-first traversal method that accepts a starting node. Without utilizing any of the built-in methods available to your language, return a collection of nodes in the order they were visited. Display the collection.
 
 ### Visual
-
+![Breadth First Graph](./assets/breadth_first_graph.jpg)
 
 # JavaScript
 ## JavaScript Algorithms
