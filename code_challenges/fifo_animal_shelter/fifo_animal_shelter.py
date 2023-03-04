@@ -6,7 +6,7 @@ class AnimalShelter:
         animal = animal.lower()
         if animal == 'dog' or animal == 'cat':
             self.shelter.append(animal)
-        else: return "We don't serve their kind here"
+        else: return "Only dogs or cats"
         return animal
 
     def dequeue(self, pref = 'nopref'):
