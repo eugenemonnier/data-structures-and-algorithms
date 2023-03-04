@@ -4,7 +4,7 @@ class AnimalShelter {
   }
 
   enqueue (animal) {
-    return animal.type.toLowerCase() === 'dog' || animal.type.toLowerCase() === 'cat' ? this.shelter.push(animal) : console.log('We don\'t serve their kind here.')
+    return animal.type.toLowerCase() === 'dog' || animal.type.toLowerCase() === 'cat' ? this.shelter.push(animal) : console.log('Only dogs or cats.')
   }
 
   dequeue (pref = 'noPref') {
