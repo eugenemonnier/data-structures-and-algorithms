@@ -21,7 +21,7 @@ def test_AnimalShelter_enqueue_cat(sample_shelter):
 
 def test_AnimalShelter_enqueue_dragon(sample_shelter):
     actual = sample_shelter.enqueue('dragon')
-    expected = "We don't serve their kind here"
+    expected = "Only dogs or cats"
     assert actual == expected
     actual = sample_shelter.shelter
     expected = ['cat', 'cat', 'dog', 'cat', 'dog']
