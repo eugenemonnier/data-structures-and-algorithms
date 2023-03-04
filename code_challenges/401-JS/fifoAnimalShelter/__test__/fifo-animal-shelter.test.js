@@ -24,7 +24,7 @@ describe('AnimalShelter module:', () => {
       testShelter.enqueue({ type: 'cat', name: 'Grumpy' })
       testShelter.enqueue({ type: 'mongoose', name: 'MongoDB' })
       expect(testShelter).toEqual({ shelter: [{ type: 'dog', name: 'Leeloo' }, { type: 'cat', name: 'Grumpy' }] })
-      expect(consoleSpy).toHaveBeenCalledWith('We don\'t serve their kind here.')
+      expect(consoleSpy).toHaveBeenCalledWith('Only dogs or cats.')
     })
   })
 
